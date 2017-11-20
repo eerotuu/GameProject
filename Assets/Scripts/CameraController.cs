@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		Screen.SetResolution (1280, 720, false);
+		//Screen.SetResolution (1280, 720, false);
 		//Calculate and store the offset value by getting the distance between the player's position and camera's position.
 		offset = transform.position - player.transform.position;
 	}

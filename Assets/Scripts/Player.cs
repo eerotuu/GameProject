@@ -5,14 +5,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	public int hp;
-	/*private Inventory inventory;
-	private Wallet wallet;*/
+	public Wallet wallet;
 
 
 
 	// Use this for initialization
 	void Start ()
 	{
+		hp = 100;
 		
 	}
 	
@@ -21,4 +21,5 @@ public class Player : MonoBehaviour
 	{
 		
 	}
+		
 }

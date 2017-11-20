@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class GameItem : MonoBehaviour
+public class GameItem
 {
-	public GameItem ()
+	private string itemName;
+
+	public GameItem (string name)
 	{
+		this.itemName = name;
+	}
+
+	public string GetGameItem ()
+	{
+		return this.itemName;
 	}
 }
 
