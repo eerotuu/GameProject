@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,11 +12,15 @@ public class PlayerMovement : MonoBehaviour
 	public Vector2 lastMove;
 	public Vector2 move;
 	Animator anim;
+	AsyncOperation asyncLoad;
+
 
 	PointerController up;
 	PointerController down;
 	PointerController left;
 	PointerController right;
+
+	static GameController gameController;
 
 
 	// Use this for initialization
@@ -28,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 		anim = GetComponent<Animator> ();
 		playerRigidbody = GetComponent<Rigidbody2D> ();
 		playerRigidbody.freezeRotation = true;
+
+		gameController = GameObject.Find ("GameController").GetComponent<GameController> ();
 
 
 		lastMove.y = 1;
@@ -101,6 +108,64 @@ public class PlayerMovement : MonoBehaviour
 		anim.SetFloat ("LastMoveY", lastMove.y);
 
 
+	}
+
+	IEnumerator OnTriggerEnter2D (Collider2D other)
+	{
+		if (other != null) {
+
+			if (other.gameObject.name.Equals ("Door")) {
+				Debug.Log ("Scene Change");
+				SceneManager.UnloadSceneAsync ("hospital");
+				SceneManager.LoadScene ("city", LoadSceneMode.Additive);
+
+
+				transform.position = new Vector2 (42f, -25f);
+			}
+
+			if (other.gameObject.name.Equals ("FastFood_1_Door")) {
+				Debug.Log ("Scene Change");
+				asyncLoad = SceneManager.UnloadSceneAsync ("city");
+				while (!asyncLoad.isDone) {
+					yield return null;
+				}
+
+				SceneManager.LoadSceneAsync ("fastfood", LoadSceneMode.Additive);
+				transform.position = new Vector2 (0f, -2.5f);
+			}
+
+			if (other.gameObject.name.Equals ("FastFood_1_Door_Out")) {
+				Debug.Log ("Scene Change");
+
+				SceneManager.UnloadSceneAsync ("fastfood");
+				SceneManager.LoadSceneAsync ("city", LoadSceneMode.Additive);
+				transform.position = new Vector2 (32f, -40.695f);
+			}
+
+			if (other != null) {
+				if (other.gameObject.name.Equals ("FastFood_2_Door")) {
+					Debug.Log ("Scene Change");
+
+					SceneManager.UnloadSceneAsync ("city");
+					SceneManager.LoadSceneAsync ("fastfood2", LoadSceneMode.Additive);
+					transform.position = new Vector2 (5.95f, -2.2f);
+				}
+			}
+
+			if (other.gameObject.name.Equals ("FastFood_2_Door_Out")) {
+				Debug.Log ("Scene Change");
+
+				SceneManager.UnloadSceneAsync ("fastfood2");
+				SceneManager.LoadSceneAsync ("city", LoadSceneMode.Additive);
+				transform.position = new Vector2 (10.05f, -41.5f);
+			}
+
+			if (other.gameObject.name.Equals ("Coin")) {
+				gameController.player.wallet.AddMoney (10);
+
+				Destroy (other.gameObject);
+			}
+		}
 	}
 }
 

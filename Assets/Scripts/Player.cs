@@ -3,33 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class Player
 {
 	public int hp;
 	public Wallet wallet;
 
-
-
-
-
-	// Use this for initialization
-	void Start ()
+	public Player ()
 	{
-		
 		hp = 100;
-
-		
+		wallet = new Wallet ();
 	}
 
 
 
-	void OnTriggerEnter2D (Collider2D other)
-	{
+
+
+
+
 		
-		if (other.gameObject.name.Equals ("Door")) {
-			Debug.Log ("osu");
-			SceneManager.LoadScene ("main_scene");
-		}
-	}
+
 		
 }
