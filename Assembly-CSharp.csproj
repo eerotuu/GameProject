@@ -90,6 +90,7 @@
      <None Include="Assets\Tiled2Unity\Shaders\shaDepth.shader" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDiffuseDepth.shader" />
      <None Include="Assets\Tiled2Unity\Imported\raisaala.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\pikaruoka4.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Materials\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Textures\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDefault-Instanced.shader" />
@@ -99,6 +100,7 @@
      <None Include="Assets\Tiled2Unity\Imported\pelimapup.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\kenney-backgroundelements\Spritesheet\bgElements_spritesheet.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\shaColorKey-Instanced.shader" />
+     <None Include="Assets\Tiled2Unity\Imported\Pikaruoka5.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\shaColorKey.shader" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDepthColorKey.shader" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDepthColorKey-Instanced.shader" />
