@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
 		player = new Player ();
 		SceneManager.LoadScene ("hospital", LoadSceneMode.Additive);
 
+
 		//invetory = GameObject.Find ("inven").GetComponent<Inventory> ();
 	}
 
