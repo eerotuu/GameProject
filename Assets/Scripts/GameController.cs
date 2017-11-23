@@ -13,12 +13,21 @@ public class GameController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		DontDestroyOnLoad (this);
 		MoneyText = (Text)GameObject.Find ("MoneyText").GetComponent<Text> ();
 		player = GameObject.Find ("Player").GetComponent<Player> ();
 		wallet = GameObject.Find ("Wallet").GetComponent<Wallet> ();
 		invetory = GameObject.Find ("Wallet").GetComponent<Inventory> ();
 	}
-	
+
+	void Awake ()
+	{
+		DontDestroyOnLoad (this);
+		MoneyText = (Text)GameObject.Find ("MoneyText").GetComponent<Text> ();
+		player = GameObject.Find ("Player").GetComponent<Player> ();
+		wallet = GameObject.Find ("Wallet").GetComponent<Wallet> ();
+		invetory = GameObject.Find ("Wallet").GetComponent<Inventory> ();
+	}
 	// Update is called once per frame
 	void Update ()
 	{
