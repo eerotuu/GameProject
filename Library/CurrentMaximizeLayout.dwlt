@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 366
+  controlID: 1807
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 14006, y: 14042}
   vertical: 1
-  controlID: 344
+  controlID: 1808
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 345
+  controlID: 1809
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -201,9 +201,9 @@ MonoBehaviour:
     height: 373
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ba310000
-    m_LastClickedID: 0
-    m_ExpandedIDs: 1e85fffffe96ffff0297ffff1097ffff4a9effffe29fffffc0a4ffff00000000
+    m_SelectedIDs: 563c0000
+    m_LastClickedID: 15446
+    m_ExpandedIDs: 1e85fffffe96ffff0297ffff1097ffff4a9effffe29fffffc0a4ffff00000000463c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -244,8 +244,8 @@ MonoBehaviour:
     y: 0
     width: 775
     height: 394
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 8}
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_MinSize: {x: 336, y: 271}
   m_MaxSize: {x: 14006, y: 10021}
   vertical: 0
-  controlID: 287
+  controlID: 1642
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -529,8 +529,8 @@ MonoBehaviour:
     y: 0
     width: 530
     height: 337
-  m_MinSize: {x: 234, y: 271}
-  m_MaxSize: {x: 10004, y: 10021}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -583,10 +583,10 @@ MonoBehaviour:
   m_LastProjectPath: C:\Users\Hoki\Documents\Peli\GameProject
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 18.719513}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: ac310000
     m_LastClickedID: 12716
-    m_ExpandedIDs: 0000000082310000e83100007e360000f63600006c37000000ca9a3bffffff7f
+    m_ExpandedIDs: 0000000082310000f63600006c37000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -614,7 +614,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000082310000e83100007e360000f63600006c37000000ca9a3bffffff7f
+    m_ExpandedIDs: 0000000082310000f63600006c37000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -639,9 +639,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ba310000
-    m_LastClickedInstanceID: 12730
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 563c0000
+    m_LastClickedInstanceID: 15446
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000943f000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
