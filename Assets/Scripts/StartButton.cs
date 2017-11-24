@@ -17,7 +17,7 @@ public class StartButton : MonoBehaviour {
 
 	void Update(){
 		if (button.getPressed()) {
-			SceneManager.LoadScene ("hospital");
+			SceneManager.LoadScene ("main_scene");
 		}
 
 	}

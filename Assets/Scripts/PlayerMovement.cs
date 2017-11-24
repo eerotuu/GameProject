@@ -110,27 +110,20 @@ public class PlayerMovement : MonoBehaviour
 
 	}
 
-	IEnumerator OnTriggerEnter2D (Collider2D other)
+	void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other != null) {
 
 			if (other.gameObject.name.Equals ("Door")) {
 				Debug.Log ("Scene Change");
 				SceneManager.UnloadSceneAsync ("hospital");
 				SceneManager.LoadScene ("city", LoadSceneMode.Additive);
-
-
-				transform.position = new Vector2 (42f, -25f);
+				transform.position = new Vector2 (84f, -72.5f);
 			}
 
 			if (other.gameObject.name.Equals ("FastFood_1_Door")) {
 				Debug.Log ("Scene Change");
 				asyncLoad = SceneManager.UnloadSceneAsync ("city");
-				while (!asyncLoad.isDone) {
-					yield return null;
-				}
-
-				SceneManager.LoadSceneAsync ("fastfood", LoadSceneMode.Additive);
+				SceneManager.LoadScene ("fastfood", LoadSceneMode.Additive);
 				transform.position = new Vector2 (0f, -2.5f);
 			}
 
@@ -138,26 +131,24 @@ public class PlayerMovement : MonoBehaviour
 				Debug.Log ("Scene Change");
 
 				SceneManager.UnloadSceneAsync ("fastfood");
-				SceneManager.LoadSceneAsync ("city", LoadSceneMode.Additive);
-				transform.position = new Vector2 (32f, -40.695f);
+				SceneManager.LoadScene ("city", LoadSceneMode.Additive);
+				transform.position = new Vector2 (74f, -88.6f);
 			}
+				
+			if (other.gameObject.name.Equals ("FastFood_2_Door")) {
+				Debug.Log ("Scene Change");
 
-			if (other != null) {
-				if (other.gameObject.name.Equals ("FastFood_2_Door")) {
-					Debug.Log ("Scene Change");
-
-					SceneManager.UnloadSceneAsync ("city");
-					SceneManager.LoadSceneAsync ("fastfood2", LoadSceneMode.Additive);
-					transform.position = new Vector2 (5.95f, -2.2f);
-				}
+				SceneManager.UnloadSceneAsync ("city");
+				SceneManager.LoadScene ("fastfood2", LoadSceneMode.Additive);
+				transform.position = new Vector2 (5.95f, -2.2f);
 			}
 
 			if (other.gameObject.name.Equals ("FastFood_2_Door_Out")) {
 				Debug.Log ("Scene Change");
 
 				SceneManager.UnloadSceneAsync ("fastfood2");
-				SceneManager.LoadSceneAsync ("city", LoadSceneMode.Additive);
-				transform.position = new Vector2 (10.05f, -41.5f);
+				SceneManager.LoadScene ("city", LoadSceneMode.Additive);
+				transform.position = new Vector2 (52f, -89.5f);
 			}
 
 			if (other.gameObject.name.Equals ("Coin")) {
@@ -165,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
 
 				Destroy (other.gameObject);
 			}
-		}
+
 	}
 }
 

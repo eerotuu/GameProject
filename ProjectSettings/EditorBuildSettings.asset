@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/fastfood2.unity
     guid: dcdeb2b758601dc44b37d389b90d3f0e
+  - enabled: 1
+    path: Assets/Scenes/main_scene.unity
+    guid: 061882433ddc1d94ea28cfd2cd144639
