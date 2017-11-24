@@ -200,6 +200,23 @@ public class PlayerMovement : MonoBehaviour
 			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
 			transform.position = new Vector2 (52f, -89.5f);
 		}
+		//Restaurant in	
+		if (other.gameObject.name.Equals ("Restaurant_Door")) {
+			Debug.Log ("Scene Change");
+
+			SceneManager.UnloadSceneAsync ("city");
+			SceneManager.LoadScene ("restaurant", LoadSceneMode.Additive);
+			transform.position = new Vector2 (-4.5f, -12.5f);
+		}
+
+		//Restaurant out
+		if (other.gameObject.name.Equals ("Restaurant_Door_Out")) {
+			Debug.Log ("Scene Change");
+
+			SceneManager.UnloadSceneAsync ("restaurant");
+			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
+			transform.position = new Vector2 (108f, -74.5f);
+		}
 
 		if (other.gameObject.name.Equals ("Coin")) {
 			gameController.player.wallet.AddMoney (10);
