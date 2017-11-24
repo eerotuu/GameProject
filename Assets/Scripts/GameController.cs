@@ -18,7 +18,9 @@ public class GameController : MonoBehaviour
 		//DontDestroyOnLoad (this);
 		MoneyText = (Text)GameObject.Find ("MoneyText").GetComponent<Text> ();
 		player = new Player ();
-		SceneManager.LoadScene ("hospital", LoadSceneMode.Additive);
+		//SceneManager.LoadScene ("hospital", LoadSceneMode.Additive);
+		SceneManager.LoadScene ("city", LoadSceneMode.Additive);
+		GameObject.Find("Player").transform.position = new Vector2 (82f, -88f);
 
 
 		//invetory = GameObject.Find ("inven").GetComponent<Inventory> ();
