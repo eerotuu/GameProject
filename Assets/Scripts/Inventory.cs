@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory
 {
 	private List<GameItem> inventory;
 
@@ -15,6 +15,12 @@ public class Inventory : MonoBehaviour
 	{
 		inventory.Add (new GameItem (name));
 	}
+
+	public void ShowInventory ()
+	{
+		
+	}
+
 }
 
 

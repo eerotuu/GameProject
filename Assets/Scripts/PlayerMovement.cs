@@ -77,28 +77,6 @@ public class PlayerMovement : MonoBehaviour
 			playerRigidbody.angularVelocity = 0;
 			moving = true;
 		}
-
-		//if (Input.GetAxisRaw ("Horizontal") > 0.5f || Input.GetAxisRaw ("Horizontal") < -0.5f) {
-			
-		//	playerRigidbody.velocity = new Vector2 (Input.GetAxisRaw ("Horizontal") * speed, playerRigidbody.velocity.y);
-		//	moving = true;
-		//	lastMove = new Vector2 (Input.GetAxisRaw ("Horizontal"), 0f);
-
-		//	}
-		//if (Input.GetAxisRaw ("Vertical") > 0.5f || Input.GetAxisRaw ("Vertical") < -0.5f) {
-		//	playerRigidbody.velocity = new Vector2 (playerRigidbody.velocity.x, Input.GetAxisRaw ("Vertical") * speed);
-		//	moving = true;
-		//	lastMove = new Vector2 (0f, Input.GetAxisRaw ("Vertical"));
-
-		//}
-		//if (Input.GetAxisRaw ("Horizontal") < 0.5f && Input.GetAxisRaw ("Horizontal") > -0.5) {
-		//	playerRigidbody.velocity = new Vector2 (0f, playerRigidbody.velocity.y);
-
-		//}
-		//if (Input.GetAxisRaw ("Vertical") < 0.5f && Input.GetAxisRaw ("Vertical") > -0.5f) {
-		//	playerRigidbody.velocity = new Vector2 (playerRigidbody.velocity.x, 0f);
-
-		//}
 			
 
 		anim.SetFloat ("MoveX", move.x);
@@ -200,23 +178,6 @@ public class PlayerMovement : MonoBehaviour
 			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
 			transform.position = new Vector2 (52f, -89.5f);
 		}
-		//Restaurant in	
-		if (other.gameObject.name.Equals ("Restaurant_Door")) {
-			Debug.Log ("Scene Change");
-
-			SceneManager.UnloadSceneAsync ("city");
-			SceneManager.LoadScene ("restaurant", LoadSceneMode.Additive);
-			transform.position = new Vector2 (-4.5f, -12.5f);
-		}
-
-		//Restaurant out
-		if (other.gameObject.name.Equals ("Restaurant_Door_Out")) {
-			Debug.Log ("Scene Change");
-
-			SceneManager.UnloadSceneAsync ("restaurant");
-			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
-			transform.position = new Vector2 (108f, -74.5f);
-		}
 
 		if (other.gameObject.name.Equals ("Coin")) {
 			gameController.player.wallet.AddMoney (10);
@@ -224,7 +185,16 @@ public class PlayerMovement : MonoBehaviour
 			Destroy (other.gameObject);
 		}
 
-	}		
+		if (other.gameObject.name.Equals ("MerchantCollider")) {
+			if (gameController.player.wallet.GetSaldo () > 0) {
+				gameController.player.AddBulk (1);
+				gameController.player.wallet.UseMoney (1);
+				Debug.Log ("bought hamburger");
+			}
+
+		}
+
+	}
 }
 
 
