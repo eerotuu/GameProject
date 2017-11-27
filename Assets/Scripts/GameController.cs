@@ -31,8 +31,8 @@ public class GameController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		MoneyText.text = "Money: " + player.wallet.GetSaldo ();
-		BulkText.text = "kcal: " + player.GetBulk ();
+		MoneyText.text = "Money: " + player.wallet.GetSaldo () + "$";
+		BulkText.text = "Bulk: " + player.GetBulk () + " kcal";
 
 	}
 

@@ -5,12 +5,16 @@ using UnityEngine.EventSystems;
 
 public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+	public bool isLockedButton;
+	public bool notLockedButton;
 
 	private  bool pressed;
+
 
 	public void OnPointerUp (PointerEventData eventData)
 	{
 		pressed = false;
+
 	}
 
 
@@ -23,5 +27,6 @@ public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpH
 	{
 		return pressed;
 	}
+
 
 }
