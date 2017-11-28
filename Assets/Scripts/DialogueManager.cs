@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+	InteractiveNPC iNpc;
 
 	public GameObject dialogueBox;
 	public GameObject dialogueButtons;
@@ -30,10 +31,18 @@ public class DialogueManager : MonoBehaviour
 	public bool isActive;
 	public bool isLocked;
 
+	Npc npc;
+
+
+	//DIALOGUE STATUS VARIABLES
+	bool talkedToNancy;
+	int ObjectiveStatus;
+
 
 	// Use this for initialization
 	void Start ()
 	{
+		ObjectiveStatus = 0;
 		isActive = false;
 		interact = GameObject.Find ("Interact").GetComponent<PointerController> ();
 		buy = GameObject.Find ("Buy1").GetComponent<PointerController> ();
@@ -74,53 +83,67 @@ public class DialogueManager : MonoBehaviour
 
 
 		//YES
-		if (isActive && yes.getPressed () && Time.time > textLocked) {
-			//Debug.Log (yes.getPressed ());
-			if (currentNpc.Equals ("Doctor Dick") && !meds) {
+		if (isActive && Time.time > textLocked) {
+
+			//!!! DON'T CHANGE IT
+			if (currentNpc.Equals ("Doctor Dick") && !meds && yes.getPressed ()) {
 				dialogueText.text = "Thats good you are changing your habits!\nGo fetch your meds from Nurse Nancy and you are free to go.";
 				textLocked = Time.time + 0.5F;
 				meds = true;
-
-
+				iNpc.ChangeDialogueStatus (npc, "Thats good you are changing your habits!\nGo fetch your meds from Nurse Nancy and you are free to go.", false, false);
+				if (talkedToNancy) {
+					iNpc.ChangeDialogueStatus (iNpc.NurseNancy, "Alright here is your meds. Stay healthy!", false, false);
+				}
 			}
 
-			if (currentNpc.Equals ("Nurse Nancy") && meds) {
+			if (ObjectiveStatus == 0 && (currentNpc.Equals ("Nurse Nancy") && meds && yes.getPressed () || currentNpc.Equals ("Nurse Nancy") && meds && talkedToNancy)) {
 				gameController.player.inventory.AddItem ("Meds");
+				ObjectiveStatus += 1;
 				Debug.Log ("Added Meds into inventory");
 				dialogueText.text = "Alright, here is your meds.\nStay healthy!";
 				textLocked = Time.time + 0.5F;
-			} else if (currentNpc.Equals ("Nurse Nancy") && !meds) {
+				iNpc.ChangeDialogueStatus (npc, "You already got your meds junkie!", false, false);
+			} else if (currentNpc.Equals ("Nurse Nancy") && !meds && yes.getPressed ()) {
 				dialogueText.text = "Go talk to Doctor Dick first";
+				talkedToNancy = true;
+				iNpc.ChangeDialogueStatus (npc, dialogueText.text, false, false);
 			}
 
 		}
 
 		//NO
+		// !!!DON'T CHANGE IT
 		if (isActive && no.getPressed () && Time.time > textLocked) {
-			//Debug.Log (no.getPressed ());
+
+			//Doctor Dick
 			if (currentNpc.Equals ("Doctor Dick") && !meds) {
 				dialogueText.text = "Sir. I Think You should reconsider.";
 				textLocked = Time.time + 0.5F;
 			}
 
+			//Nurse Nancy
 			if (currentNpc.Equals ("Nurse Nancy")) {
 				dialogueText.text = "Ah...";
 				textLocked = Time.time + 0.5F;
 			}
-		}
 
+		}
+			
 
 		dialogueBox.SetActive (isActive);
+
 	}
 
-	public void Dialogue (string name, string text, bool hasQuestion, bool sells)
+	public void Dialogue (InteractiveNPC iNpc, Npc npc, string name, string text, bool hasQuestion, bool sells)
 	{
 		if (!isActive) {
 			Debug.Log ("reset");
+			this.iNpc = iNpc;
+			this.npc = npc;
+			Debug.Log (npc);
 			currentNpc = name;
 			dialogueButtons.SetActive (hasQuestion);
 			dialogueButtonsSell.SetActive (sells);
-			Debug.Log (hasQuestion);
 			isActive = true;
 			dialgueName.text = name + ":";
 			dialogueText.text = text;

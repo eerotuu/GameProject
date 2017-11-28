@@ -13,12 +13,15 @@ public class PlayerCollision : MonoBehaviour
 	Image iButton;
 	GameController gameController;
 
+	DialogueManager dManager;
+
 	// Use this for initialization
 	void Start ()
 	{
 		interact = GameObject.Find ("Interact").GetComponent<PointerController> ();
 		iButton = GameObject.Find ("Interact").GetComponent<Image> ();
 		gameController = GameObject.Find ("GameController").GetComponent<GameController> ();
+		dManager = GameObject.Find ("DialogueManager").GetComponent<DialogueManager> ();
 		
 	}
 	
@@ -27,7 +30,7 @@ public class PlayerCollision : MonoBehaviour
 	{
 		if (interact.getPressed () && currentIntreactiveNPC) {
 			if (currentIntreactiveNPC.talks) {
-				currentIntreactiveNPC.Talk (npc);
+				currentIntreactiveNPC.Talk (npc, currentIntreactiveNPC);
 
 			}
 
@@ -206,8 +209,8 @@ public class PlayerCollision : MonoBehaviour
 			currentIntreactiveNPC.StopTalk ();
 			currentIntreactiveNPC = null;
 			iButton.color = Color.white;
-
 		}
+			
 	}
 }
 

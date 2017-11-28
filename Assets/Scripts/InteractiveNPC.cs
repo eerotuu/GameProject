@@ -25,11 +25,11 @@ public class InteractiveNPC : MonoBehaviour
 		NurseNancy = new Npc ("Nurse Nancy", "Hi!\nAre you here for your meds?", false, true);
 	}
 
-	public void Talk (Npc npc)
+	public void Talk (Npc npc, InteractiveNPC iNpc)
 	{
-		if (!dManager.isActive && !dManager.isLocked) {
+		if (!dManager.isLocked) {
 			//dManager.Dialogue (name, message, hasQuestion, sells);
-			dManager.Dialogue (npc.name, npc.message, npc.hasQuestion, npc.sells);
+			dManager.Dialogue (iNpc, npc, npc.name, npc.message, npc.hasQuestion, npc.sells);
 		}
 
 	}
@@ -40,8 +40,11 @@ public class InteractiveNPC : MonoBehaviour
 		dManager.isLocked = false;
 	}
 
-	public void ChangeDialogueStatus (string name, int status)
+	public void ChangeDialogueStatus (Npc npc, string message, bool hasQuestion, bool sells)
 	{
+		npc.message = message;
+		npc.hasQuestion = hasQuestion;
+		npc.sells = sells;
 		
 	}
 }
