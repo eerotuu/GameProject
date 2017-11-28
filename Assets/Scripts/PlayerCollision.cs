@@ -167,6 +167,12 @@ public class PlayerCollision : MonoBehaviour
 			npc = currentIntreactiveNPC.DoctorDick;
 		}
 
+		if (other.gameObject.name.Equals ("doctor2")) {
+			iButton.color = Color.green;
+			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
+			npc = currentIntreactiveNPC.DoctorNick;
+		}
+
 	}
 
 	void OnTriggerExit2D (Collider2D other)
@@ -181,6 +187,12 @@ public class PlayerCollision : MonoBehaviour
 			currentIntreactiveNPC.StopTalk ();
 			currentIntreactiveNPC = null;
 			iButton.color = Color.white;
+		}
+		if (other.gameObject.name.Equals ("doctor2")) {
+			currentIntreactiveNPC.StopTalk ();
+			currentIntreactiveNPC = null;
+			iButton.color = Color.white;
+
 		}
 	}
 }

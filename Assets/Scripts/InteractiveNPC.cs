@@ -11,6 +11,7 @@ public class InteractiveNPC : MonoBehaviour
 
 	public Npc FastFoodJoe;
 	public Npc DoctorDick;
+	public Npc DoctorNick;
 
 
 	// Use this for initialization
@@ -18,7 +19,8 @@ public class InteractiveNPC : MonoBehaviour
 	{
 		dManager = GameObject.Find ("DialogueManager").GetComponent<DialogueManager> ();
 		FastFoodJoe = new Npc ("Fast Food Joe", "Hi! Welcome to Fast Food Joe's Crib.\nWould you like to buy a CheeseBurger for 10$?", true, false);
-		DoctorDick = new Npc ("Doctor Dick", "Hi! You have cancer.", false, false);
+		DoctorDick = new Npc ("Doctor Dick", "So... Bobby Ulk. I'm worried about your bulking habit. I need you to start healthy diet and stop this fast food madness.\n\nAre you OK with this?", false, true);
+		DoctorNick = new Npc ("Doctor Nick", "hulabaloba.", false, true);
 	}
 
 	public void Talk (Npc npc)

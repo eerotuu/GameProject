@@ -12,12 +12,15 @@ public class DialogueManager : MonoBehaviour
 
 	private PointerController interact;
 	private PointerController buy;
+	private PointerController yes;
+	private PointerController no;
+
 	private GameController gameController;
 
 	string currentNpc;
 
 	float locked;
-	float buyLocked;
+	float textLocked;
 
 	public Text dialgueName;
 	public Text dialogueText;
@@ -32,6 +35,8 @@ public class DialogueManager : MonoBehaviour
 		isActive = false;
 		interact = GameObject.Find ("Interact").GetComponent<PointerController> ();
 		buy = GameObject.Find ("Buy1").GetComponent<PointerController> ();
+		yes = GameObject.Find ("DialogueButtonYes").GetComponent<PointerController> ();
+		no = GameObject.Find ("DialogueButtonNo").GetComponent<PointerController> ();
 		gameController = GameObject.Find ("GameController").GetComponent<GameController> ();
 	}
 	
@@ -47,13 +52,14 @@ public class DialogueManager : MonoBehaviour
 			isLocked = false;
 		}
 
-		if (isActive && buy.getPressed () && Time.time > buyLocked) {
+		//BUY
+		if (isActive && buy.getPressed () && Time.time > textLocked) {
 			if (currentNpc.Equals ("Fast Food Joe")) {
 				if (gameController.player.wallet.GetSaldo () > 0) {
 					gameController.player.AddBulk (300);
 					gameController.player.wallet.UseMoney (10);
 					Debug.Log ("Bought CheeseBurger!");
-					buyLocked = Time.time + 0.5F;
+					textLocked = Time.time + 0.5F;
 					dialogueText.text = "There you go son, one CheeseBurger.";
 				} else {
 					dialogueText.text = "Son, you poor as fuck! \nGo get some money first.";
@@ -61,6 +67,22 @@ public class DialogueManager : MonoBehaviour
 			}
 		}
 
+		//YES
+		if (isActive && yes.getPressed () && Time.time > textLocked) {
+			if (currentNpc.Equals ("Doctor Dick")) {
+				dialogueButtons.SetActive (false);
+				dialogueText.text = "Thats good you are changing your habits!\nGo fetch your meds from Nurse Nancy and you are free to go.";
+				textLocked = Time.time + 0.5F;
+
+			}
+		}
+
+		//NO
+		if (isActive && no.getPressed () && Time.time > textLocked) {
+			if (currentNpc.Equals ("Doctor Dick")) {
+				
+			}
+		}
 		dialogueBox.SetActive (isActive);
 	}
 
