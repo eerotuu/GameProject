@@ -35,6 +35,12 @@ public class PlayerCollision : MonoBehaviour
 			}
 
 		}
+
+		/*if (currentIntreactiveNPC) {
+			if (npc == currentIntreactiveNPC.hospitalDoor) {
+				currentIntreactiveNPC.Talk (npc, currentIntreactiveNPC);
+			}
+		}*/
 		
 	}
 
@@ -44,11 +50,17 @@ public class PlayerCollision : MonoBehaviour
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		//Hospial door out
-		if (other.gameObject.name.Equals ("Door")) {
+		if (other.gameObject.name.Equals ("Door") && dManager.ObjectiveStatus > 0) {
 			Debug.Log ("Scene Change");
 			SceneManager.UnloadSceneAsync ("hospital");
 			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
 			transform.position = new Vector2 (84f, -72.5f);
+			dManager.ObjectiveStatus += 1;
+			gameController.ChangeObjective ("Find a way to sell your meds");
+		} else if (other.gameObject.name.Equals ("Door") && dManager.ObjectiveStatus == 0) {
+			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
+			npc = currentIntreactiveNPC.hospitalDoor;
+			currentIntreactiveNPC.Talk (npc, currentIntreactiveNPC);
 		}
 		//FastFood door 1 in
 		if (other.gameObject.name.Equals ("FastFood_1_Door")) {
@@ -157,7 +169,7 @@ public class PlayerCollision : MonoBehaviour
 		}
 
 		//merchant in fasfood1
-		if (other.gameObject.name.Equals ("FastFoodMerchant1")) {
+		if (other.gameObject.name.Equals ("FastFoodMerchant")) {
 			iButton.color = Color.green;
 			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
 			npc = currentIntreactiveNPC.FastFoodJoe;
@@ -184,33 +196,25 @@ public class PlayerCollision : MonoBehaviour
 			npc = currentIntreactiveNPC.NurseNancy;
 		}
 
+		if (other.gameObject.name.Equals ("DrugBuyer")) {
+			iButton.color = Color.green;
+			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
+			npc = currentIntreactiveNPC.DrugBuyer;
+		}
+
 	}
 
 	void OnTriggerExit2D (Collider2D other)
 	{
-		if (other.gameObject.name.Equals ("doctor")) {
-			currentIntreactiveNPC.StopTalk ();
-			currentIntreactiveNPC = null;
-			iButton.color = Color.white;
+		if (other.gameObject.GetComponent <InteractiveNPC> ()) {
+			InteractiveNPC npcCheck = other.gameObject.GetComponent <InteractiveNPC> ();
+			if (npcCheck.talks) {
+				currentIntreactiveNPC.StopTalk ();
+				currentIntreactiveNPC = null;
+				iButton.color = Color.white;
 
+			}
 		}
-		if (other.gameObject.name.Equals ("FastFoodMerchant1")) {
-			currentIntreactiveNPC.StopTalk ();
-			currentIntreactiveNPC = null;
-			iButton.color = Color.white;
-		}
-		if (other.gameObject.name.Equals ("doctor2")) {
-			currentIntreactiveNPC.StopTalk ();
-			currentIntreactiveNPC = null;
-			iButton.color = Color.white;
-
-		}
-		if (other.gameObject.name.Equals ("nurse1")) {
-			currentIntreactiveNPC.StopTalk ();
-			currentIntreactiveNPC = null;
-			iButton.color = Color.white;
-		}
-			
 	}
 }
 

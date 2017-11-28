@@ -2,13 +2,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DialogueManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="22" Column="2" />
-      <File FileName="Assets\Scripts\PlayerCollision.cs" Line="30" Column="38" />
-      <File FileName="Assets\Scripts\DialogueManager.cs" Line="90" Column="60" />
-      <File FileName="Assets\Scripts\InteractiveNPC.cs" Line="25" Column="31" />
-      <File FileName="Assets\Scripts\Npc.cs" Line="16" Column="5" />
-      <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PointerController.cs" Line="33" Column="16" />
+      <File FileName="Assets\Scripts\InteractiveNPC.cs" Line="29" Column="71" />
+      <File FileName="Assets\Scripts\DialogueManager.cs" Line="104" Column="35" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="32" Column="36" />
+      <File FileName="Assets\Scripts\PlayerCollision.cs" Line="213" Column="34" />
+      <File FileName="Assets\Scripts\GameItem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameController.cs" Line="43" Column="32" />
+      <File FileName="Assets\Scripts\PointerController.cs" Line="46" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

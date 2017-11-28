@@ -13,6 +13,8 @@ public class InteractiveNPC : MonoBehaviour
 	public Npc DoctorDick;
 	public Npc DoctorNick;
 	public Npc NurseNancy;
+	public Npc hospitalDoor;
+	public Npc DrugBuyer;
 
 
 	// Use this for initialization
@@ -23,6 +25,8 @@ public class InteractiveNPC : MonoBehaviour
 		DoctorDick = new Npc ("Doctor Dick", "So... Bobby Ulk. I'm worried about your bulking habit. I need you to start healthy diet and stop this fast food madness.\n\nAre you OK with this?", false, true);
 		DoctorNick = new Npc ("Doctor Nick", "hulabaloba.", false, true);
 		NurseNancy = new Npc ("Nurse Nancy", "Hi!\nAre you here for your meds?", false, true);
+		hospitalDoor = new Npc ("Doctor Dick", "HEY! GET YOUR MEDS FIRST!", false, false);
+		DrugBuyer = new Npc ("Drug Buyer", "Yo Bobby, got something to sell?", false, true);
 	}
 
 	public void Talk (Npc npc, InteractiveNPC iNpc)

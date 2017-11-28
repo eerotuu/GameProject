@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -33,5 +34,16 @@ public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpH
 		return false;
 	}
 
+	public void HideButton ()
+	{
+		this.gameObject.SetActive (false);
+		/*GameObject obj = GetComponent<GameObject> ();
+		obj.SetActive (false);*/
+	}
+
+	public void ShowButton ()
+	{
+		this.gameObject.SetActive (true);
+	}
 
 }

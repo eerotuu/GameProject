@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 643404199}
   - component: {fileID: 643404198}
   m_Layer: 0
-  m_Name: dude_npc
+  m_Name: DrugBuyer
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,7 +495,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 643404196}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.22889, y: -0.63266677, z: 0}
+  m_LocalPosition: {x: 12.234, y: -0.779, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1920601454}
@@ -1394,8 +1394,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1751550172}
   - component: {fileID: 1751550175}
-  - component: {fileID: 1751550174}
-  - component: {fileID: 1751550173}
   m_Layer: 0
   m_Name: dude10_npc
   m_TagString: NPC
@@ -1416,33 +1414,6 @@ Transform:
   m_Father: {fileID: 1920601454}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1751550173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1751550171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
---- !u!58 &1751550174
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1751550171}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &1751550175
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1677,7 +1648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talks: 1
+  talks: 0
 --- !u!58 &1951264891
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1800,8 +1771,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1993321070}
   - component: {fileID: 1993321073}
-  - component: {fileID: 1993321072}
-  - component: {fileID: 1993321071}
   m_Layer: 0
   m_Name: dude9_npc
   m_TagString: NPC
@@ -1822,33 +1791,6 @@ Transform:
   m_Father: {fileID: 1920601454}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1993321071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1993321069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
---- !u!58 &1993321072
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1993321069}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &1993321073
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2106,8 +2048,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2072763732}
   - component: {fileID: 2072763735}
-  - component: {fileID: 2072763734}
-  - component: {fileID: 2072763733}
   m_Layer: 0
   m_Name: dude11_npc
   m_TagString: NPC
@@ -2128,33 +2068,6 @@ Transform:
   m_Father: {fileID: 1920601454}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2072763733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2072763731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
---- !u!58 &2072763734
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2072763731}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &2072763735
 SpriteRenderer:
   m_ObjectHideFlags: 0

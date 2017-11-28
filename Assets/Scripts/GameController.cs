@@ -9,8 +9,12 @@ public class GameController : MonoBehaviour
 	public Player player;
 	Text MoneyText;
 	Text BulkText;
+	Text objectiveStatus;
 	Wallet wallet;
 	Inventory invetory;
+	DialogueManager dManager;
+
+	string status;
 
 	// Use this for initialization
 	void Start ()
@@ -19,6 +23,7 @@ public class GameController : MonoBehaviour
 		//DontDestroyOnLoad (this);
 		MoneyText = (Text)GameObject.Find ("MoneyText").GetComponent<Text> ();
 		BulkText = (Text)GameObject.Find ("BulkText").GetComponent<Text> ();
+		objectiveStatus = (Text)GameObject.Find ("ObjectiveStatusText").GetComponent<Text> ();
 		player = new Player ();
 		SceneManager.LoadScene ("hospital", LoadSceneMode.Additive);
 		//SceneManager.LoadScene ("city", LoadSceneMode.Additive);
@@ -26,6 +31,8 @@ public class GameController : MonoBehaviour
 
 
 		//invetory = GameObject.Find ("inven").GetComponent<Inventory> ();
+
+		objectiveStatus.text = "is this ok?";
 	}
 		
 	// Update is called once per frame
@@ -33,6 +40,13 @@ public class GameController : MonoBehaviour
 	{
 		MoneyText.text = "Money: " + player.wallet.GetSaldo () + "$";
 		BulkText.text = "Bulk: " + player.GetBulk () + " kcal";
+		objectiveStatus.text = status;
+
+	}
+
+	public void ChangeObjective (string objective)
+	{
+		status = objective;
 
 	}
 
