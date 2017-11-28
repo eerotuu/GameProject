@@ -160,6 +160,8 @@ public class PlayerCollision : MonoBehaviour
 			npc = currentIntreactiveNPC.FastFoodJoe;
 		}
 
+		//NPC INTERACTION
+
 		//Doctor in hospital
 		if (other.gameObject.name.Equals ("doctor")) {
 			iButton.color = Color.green;
@@ -171,6 +173,12 @@ public class PlayerCollision : MonoBehaviour
 			iButton.color = Color.green;
 			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
 			npc = currentIntreactiveNPC.DoctorNick;
+		}
+
+		if (other.gameObject.name.Equals ("nurse1")) {
+			iButton.color = Color.green;
+			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
+			npc = currentIntreactiveNPC.NurseNancy;
 		}
 
 	}
@@ -189,6 +197,12 @@ public class PlayerCollision : MonoBehaviour
 			iButton.color = Color.white;
 		}
 		if (other.gameObject.name.Equals ("doctor2")) {
+			currentIntreactiveNPC.StopTalk ();
+			currentIntreactiveNPC = null;
+			iButton.color = Color.white;
+
+		}
+		if (other.gameObject.name.Equals ("nurse1")) {
 			currentIntreactiveNPC.StopTalk ();
 			currentIntreactiveNPC = null;
 			iButton.color = Color.white;

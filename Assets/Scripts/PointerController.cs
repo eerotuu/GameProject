@@ -28,5 +28,10 @@ public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpH
 		return pressed;
 	}
 
+	public bool getFalse ()
+	{
+		return false;
+	}
+
 
 }

@@ -15,6 +15,8 @@ public class DialogueManager : MonoBehaviour
 	private PointerController yes;
 	private PointerController no;
 
+	private bool meds;
+
 	private GameController gameController;
 
 	string currentNpc;
@@ -43,14 +45,17 @@ public class DialogueManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (isActive && interact.getPressed () && Time.time > locked) {
+		
+
+		/*if (isActive && interact.getPressed () && Time.time > locked) {
 			isActive = false;
 			locked = Time.time + 1.0F;
-		}
+		}*/
 
 		if (!isActive && Time.time > locked) {
 			isLocked = false;
 		}
+
 
 		//BUY
 		if (isActive && buy.getPressed () && Time.time > textLocked) {
@@ -67,34 +72,60 @@ public class DialogueManager : MonoBehaviour
 			}
 		}
 
+
 		//YES
 		if (isActive && yes.getPressed () && Time.time > textLocked) {
-			if (currentNpc.Equals ("Doctor Dick")) {
-				dialogueButtons.SetActive (false);
+			//Debug.Log (yes.getPressed ());
+			if (currentNpc.Equals ("Doctor Dick") && !meds) {
 				dialogueText.text = "Thats good you are changing your habits!\nGo fetch your meds from Nurse Nancy and you are free to go.";
 				textLocked = Time.time + 0.5F;
+				meds = true;
+
 
 			}
+
+			if (currentNpc.Equals ("Nurse Nancy") && meds) {
+				gameController.player.inventory.AddItem ("Meds");
+				Debug.Log ("Added Meds into inventory");
+				dialogueText.text = "Alright, here is your meds.\nStay healthy!";
+				textLocked = Time.time + 0.5F;
+			} else if (currentNpc.Equals ("Nurse Nancy") && !meds) {
+				dialogueText.text = "Go talk to Doctor Dick first";
+			}
+
 		}
 
 		//NO
 		if (isActive && no.getPressed () && Time.time > textLocked) {
-			if (currentNpc.Equals ("Doctor Dick")) {
-				
+			//Debug.Log (no.getPressed ());
+			if (currentNpc.Equals ("Doctor Dick") && !meds) {
+				dialogueText.text = "Sir. I Think You should reconsider.";
+				textLocked = Time.time + 0.5F;
+			}
+
+			if (currentNpc.Equals ("Nurse Nancy")) {
+				dialogueText.text = "Ah...";
+				textLocked = Time.time + 0.5F;
 			}
 		}
+
+
 		dialogueBox.SetActive (isActive);
 	}
 
 	public void Dialogue (string name, string text, bool hasQuestion, bool sells)
 	{
-		currentNpc = name;
-		dialogueButtons.SetActive (hasQuestion);
-		dialogueButtonsSell.SetActive (sells);
-		isActive = true;
-		dialgueName.text = name + ":";
-		dialogueText.text = text;
-		locked = Time.time + 1.0F;
-		isLocked = true;
+		if (!isActive) {
+			Debug.Log ("reset");
+			currentNpc = name;
+			dialogueButtons.SetActive (hasQuestion);
+			dialogueButtonsSell.SetActive (sells);
+			Debug.Log (hasQuestion);
+			isActive = true;
+			dialgueName.text = name + ":";
+			dialogueText.text = text;
+			locked = Time.time + 1.0F;
+			isLocked = true;
+		}
 	}
 }
