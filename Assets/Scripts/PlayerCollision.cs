@@ -128,6 +128,23 @@ public class PlayerCollision : MonoBehaviour
 			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
 			transform.position = new Vector2 (52f, -89.5f);
 		}
+		//Restaurant door 5 in	
+		if (other.gameObject.name.Equals ("Restaurant_Door")) {
+			Debug.Log ("Scene Change");
+
+			SceneManager.UnloadSceneAsync ("city");
+			SceneManager.LoadScene ("restaurant", LoadSceneMode.Additive);
+			transform.position = new Vector2 (-4.5f, -12.5f);
+		}
+
+		//Restaurant 5 out
+		if (other.gameObject.name.Equals ("Restaurant_Door_Out")) {
+			Debug.Log ("Scene Change");
+
+			SceneManager.UnloadSceneAsync ("restaurant");
+			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
+			transform.position = new Vector2 (108f, -74.5f);
+		}
 
 		//coin
 		if (other.gameObject.name.Equals ("Coin")) {
