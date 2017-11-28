@@ -19,7 +19,7 @@ public class StartButton : MonoBehaviour {
 
 	void Update(){
 		if (button.getPressed()) {
-			SceneManager.LoadScene ("main_scene");
+			SceneManager.LoadScene ("intro");
 		}
 
 		if (credits.getPressed()) {
