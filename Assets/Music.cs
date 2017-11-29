@@ -6,7 +6,11 @@ public class Music : MonoBehaviour {
 	public static Music current;
 
 	void Awake() {
-		if (current != null) Destroy (gameObject);
+		if (current) {
+			Destroy (gameObject);
+			return;
+		}
+
 		current = this;
 
 		DontDestroyOnLoad(transform.gameObject);
