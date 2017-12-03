@@ -31,7 +31,6 @@ public class PlayerCollision : MonoBehaviour
 		if (interact.getPressed () && currentIntreactiveNPC) {
 			if (currentIntreactiveNPC.talks) {
 				currentIntreactiveNPC.Talk (npc, currentIntreactiveNPC);
-
 			}
 
 		}
@@ -44,121 +43,82 @@ public class PlayerCollision : MonoBehaviour
 		
 	}
 
-	//
-	// Player Interaction With other objects
-	//
+	/// <summary>
+	/// Raises the trigger enter2 d event.
+	/// </summary>
+	/// <param name="other">Other.</param>
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		//Hospial door out
 		if (other.gameObject.name.Equals ("Door") && dManager.ObjectiveStatus > 0) {
-			Debug.Log ("Scene Change");
-			SceneManager.UnloadSceneAsync ("hospital");
-			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
-			transform.position = new Vector2 (84f, -72.5f);
-			dManager.ObjectiveStatus += 1;
-			gameController.ChangeObjective ("Find a way to sell your meds");
+			gameController.ChangeScene ("hospital", "city", 84f, -72.5f);
+			if (dManager.ObjectiveStatus == 1) {
+				dManager.ObjectiveStatus += 1;
+				gameController.ChangeObjective ("Find a way to sell your meds");
+				dManager.Dialogue ("Me", "I should go see my buddy at southwest from here. That junkie definitely buys this shit.");
+			}
 		} else if (other.gameObject.name.Equals ("Door") && dManager.ObjectiveStatus == 0) {
 			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
 			npc = currentIntreactiveNPC.hospitalDoor;
 			currentIntreactiveNPC.Talk (npc, currentIntreactiveNPC);
 		}
+		if (other.gameObject.name.Equals ("Hospital_Door")) {
+			gameController.ChangeScene ("city", "hospital", 7f, -17f);
+		}
 		//FastFood door 1 in
 		if (other.gameObject.name.Equals ("FastFood_1_Door")) {
-			Debug.Log ("Scene Change");
-			SceneManager.UnloadSceneAsync ("city");
-			SceneManager.LoadScene ("fastfood", LoadSceneMode.Additive);
-			transform.position = new Vector2 (0f, -2.5f);
+			gameController.ChangeScene ("city", "fastfood", 0f, -2.5f);
 		}
 		//FastFood door 1 out
 		if (other.gameObject.name.Equals ("FastFood_1_Door_Out")) {
-			Debug.Log ("Scene Change");
-
-			SceneManager.UnloadSceneAsync ("fastfood");
-			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
-			transform.position = new Vector2 (74f, -88.6f);
+			gameController.ChangeScene ("fastfood", "city", 74f, -88.6f);
 		}
 		//FastFood door 2 in
 		if (other.gameObject.name.Equals ("FastFood_2_Door")) {
-			Debug.Log ("Scene Change");
-			SceneManager.UnloadSceneAsync ("city");
-			SceneManager.LoadScene ("fastfood2", LoadSceneMode.Additive);
-			transform.position = new Vector2 (6f, -2.7f);
+			gameController.ChangeScene ("city", "fastfood2", 6f, -2.7f);
 		}
 		//FastFood door 2 out
 		if (other.gameObject.name.Equals ("FastFood_2_Door_Out")) {
-			Debug.Log ("Scene Change");
-
-			SceneManager.UnloadSceneAsync ("fastfood2");
-			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
-			transform.position = new Vector2 (82f, -88.6f);
+			gameController.ChangeScene ("fastfood2", "city", 82f, -88.6f);
 		}
 
 		//FastFood door 3 in
 		if (other.gameObject.name.Equals ("FastFood_3_Door")) {
-			Debug.Log ("Scene Change");
-			SceneManager.UnloadSceneAsync ("city");
-			SceneManager.LoadScene ("fastfood3", LoadSceneMode.Additive);
-			transform.position = new Vector2 (-2f, -17.5f);
+			gameController.ChangeScene ("city", "fastfood3", -2f, -17.5f);
 		}
 
 		//FastFood door 3 Out
 		if (other.gameObject.name.Equals ("FastFood_3_Door_Out")) {
-			Debug.Log ("Scene Change");
-
-			SceneManager.UnloadSceneAsync ("fastfood3");
-			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
-			transform.position = new Vector2 (24.5f, -53.5f);
+			gameController.ChangeScene ("fastfood3", "city", 24.5f, -53.5f);
 		}
 		//FastFood door 4 in
 		if (other.gameObject.name.Equals ("FastFood_4_Door")) {
-			Debug.Log ("Scene Change");
-			SceneManager.UnloadSceneAsync ("city");
-			SceneManager.LoadScene ("fastfood4", LoadSceneMode.Additive);
-			transform.position = new Vector2 (-2f, -17.5f);
+			gameController.ChangeScene ("city", "fastfood4", -2f, -17.5f);
+
 		}
 
 		//FastFood door 4 Out
 		if (other.gameObject.name.Equals ("FastFood_4_Door_Out")) {
-			Debug.Log ("Scene Change");
-
-			SceneManager.UnloadSceneAsync ("fastfood4");
-			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
-			transform.position = new Vector2 (37.3f, -53.5f);
+			gameController.ChangeScene ("fastfood4", "city", 37.3f, -53.5f);
 		}
 
 		//FastFood door 5 in	
 		if (other.gameObject.name.Equals ("FastFood_5_Door")) {
-			Debug.Log ("Scene Change");
-
-			SceneManager.UnloadSceneAsync ("city");
-			SceneManager.LoadScene ("fastfood5", LoadSceneMode.Additive);
-			transform.position = new Vector2 (0f, -1.2f);
+			gameController.ChangeScene ("city", "fastfood4", 0f, -1.2f);
 		}
 
 		//FastFood 5 out
 		if (other.gameObject.name.Equals ("FastFood_5_Door_Out")) {
-			Debug.Log ("Scene Change");
-
-			SceneManager.UnloadSceneAsync ("fastfood5");
-			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
-			transform.position = new Vector2 (52f, -89.5f);
+			gameController.ChangeScene ("fastfood5", "city", 52f, -89.5f);
 		}
-		//Restaurant door 5 in	
+		//Restaurant door in	
 		if (other.gameObject.name.Equals ("Restaurant_Door")) {
-			Debug.Log ("Scene Change");
-
-			SceneManager.UnloadSceneAsync ("city");
-			SceneManager.LoadScene ("restaurant", LoadSceneMode.Additive);
-			transform.position = new Vector2 (-4.5f, -12.5f);
+			gameController.ChangeScene ("city", "restaurant", -4.5f, -12.5f);
 		}
 
-		//Restaurant 5 out
+		//Restaurant out
 		if (other.gameObject.name.Equals ("Restaurant_Door_Out")) {
-			Debug.Log ("Scene Change");
-
-			SceneManager.UnloadSceneAsync ("restaurant");
-			SceneManager.LoadScene ("city", LoadSceneMode.Additive);
-			transform.position = new Vector2 (108f, -74.5f);
+			gameController.ChangeScene ("restaurant", "city", 108f, -74.5f);
 		}
 
 		//coin
@@ -173,6 +133,11 @@ public class PlayerCollision : MonoBehaviour
 			iButton.color = Color.green;
 			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
 			npc = currentIntreactiveNPC.FastFoodJoe;
+		}
+		if (other.gameObject.name.Equals ("BurgerBob")) {
+			iButton.color = Color.green;
+			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
+			npc = currentIntreactiveNPC.BurgerBob;
 		}
 
 		//NPC INTERACTION
@@ -201,9 +166,23 @@ public class PlayerCollision : MonoBehaviour
 			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
 			npc = currentIntreactiveNPC.DrugBuyer;
 		}
+		if (other.gameObject.name.Equals ("objectiveVegan")) {
+			iButton.color = Color.green;
+			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
+			npc = currentIntreactiveNPC.MaleVegan;
+			if (dManager.ObjectiveStatus == 4) {
+				currentIntreactiveNPC.ChangeDialogueStatus (npc, "Hi I'm Vegan\n\n\"Beat him?\"", true, false);
+			}
+
+
+		}
 
 	}
 
+	/// <summary>
+	/// Raises the trigger exit2 d event.
+	/// </summary>
+	/// <param name="other">Other.</param>
 	void OnTriggerExit2D (Collider2D other)
 	{
 		if (other.gameObject.GetComponent <InteractiveNPC> ()) {
@@ -216,5 +195,6 @@ public class PlayerCollision : MonoBehaviour
 			}
 		}
 	}
+		
 }
 

@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class Inventory
 {
 	private List<GameItem> inventory;
-
+	private GameItem currentItem;
 	Image itemSlot0Image;
-	GameObject itemSlot0;
+	Image itemSlot1Image;
+	/*GameObject itemSlot0;
+	GameObject itemSlot1;*/
 
 
 	public Inventory ()
@@ -18,7 +20,11 @@ public class Inventory
 
 	public void AddItem (GameItem name)
 	{
-		inventory.Add (name);
+		if (inventory.Count < 2) {
+			inventory.Add (name);
+			Debug.Log ("Added " + name.GetGameItem () + " into inventory");
+		}
+
 	}
 
 	public void RemoveItem (GameItem name)
@@ -26,19 +32,32 @@ public class Inventory
 		inventory.Remove (name);
 	}
 
-	public void ListInventory (GameItem name)
+	public void ListInventory ()
 	{
-		itemSlot0Image = GameObject.Find ("ItemImage").GetComponent<Image> ();
-		if (name.GetGameItem ().Equals ("medicine")) {
-			itemSlot0Image.sprite = Resources.Load <Sprite> ("green_checkmark");
-			itemSlot0Image.enabled = !itemSlot0Image.enabled;
+		if (inventory.Count > 0) {
+			itemSlot0Image = GameObject.Find ("ItemImage0").GetComponent<Image> ();
+			itemSlot0Image.sprite = inventory [0].GetItemImage ();
+			itemSlot0Image.enabled = true;
+
+			if (inventory.Count > 1) {
+				itemSlot1Image = GameObject.Find ("ItemImage1").GetComponent<Image> ();
+				itemSlot1Image.sprite = inventory [1].GetItemImage ();
+				itemSlot1Image.enabled = true;
+			} else {
+				itemSlot1Image.enabled = false;
+			}
+		} else {
+			itemSlot0Image.enabled = false;
+			itemSlot1Image.enabled = false;
 		}
+
+
 
 	}
 
-	public void ListInventory ()
+	public void HideInventory ()
 	{
-		itemSlot0Image.enabled = !itemSlot0Image.enabled;
+		
 	}
 
 }

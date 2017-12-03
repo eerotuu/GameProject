@@ -11,6 +11,12 @@ public class Npc
 	public bool sells;
 	public bool hasQuestion;
 
+	public Npc (string name, string message)
+	{
+		this.name = name;
+		this.message = message;
+	}
+
 	public Npc (string name, string message, bool sells, bool hasQuestion)
 	{
 		this.name = name;
@@ -18,6 +24,8 @@ public class Npc
 		this.sells = sells;
 		this.hasQuestion = hasQuestion;
 	}
+
+
 }
 
 

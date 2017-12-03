@@ -44,10 +44,29 @@ public class GameController : MonoBehaviour
 
 	}
 
+	/// <summary>
+	/// Changes the objective.
+	/// </summary>
+	/// <param name="objective">Objective.</param>
 	public void ChangeObjective (string objective)
 	{
 		status = objective;
 
+	}
+
+	/// <summary>
+	/// Changes the scene.
+	/// </summary>
+	/// <param name="sceneToUnload">Scene to unload.</param>
+	/// <param name="sceneToLoad">Scene to load.</param>
+	/// <param name="posX">Position x.</param>
+	/// <param name="posY">Position y.</param>
+	public void ChangeScene (string sceneToUnload, string sceneToLoad, float posX, float posY)
+	{
+		SceneManager.UnloadSceneAsync (sceneToUnload);
+		SceneManager.LoadScene (sceneToLoad, LoadSceneMode.Additive);
+		GameObject.Find ("Player").transform.position = new Vector2 (posX, posY);
+		Debug.Log ("Scene changed to " + sceneToLoad);
 	}
 
 
