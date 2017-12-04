@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 440857368}
   - component: {fileID: 440857367}
   - component: {fileID: 440857366}
+  - component: {fileID: 440857369}
   m_Layer: 0
   m_Name: customer (4)
   m_TagString: NPC
@@ -571,6 +572,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &440857369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 440857364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talks: 1
+  name: Angry Vegan
+  message: I'M A VEGAN!!
 --- !u!1 &487626210
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +847,7 @@ GameObject:
   - component: {fileID: 1144223670}
   - component: {fileID: 1144223669}
   - component: {fileID: 1144223668}
+  - component: {fileID: 1144223671}
   m_Layer: 0
   m_Name: customer (12)
   m_TagString: NPC
@@ -923,6 +939,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1144223671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1144223666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talks: 1
+  name: Angry Vegan
+  message: Meat IS murder!
 --- !u!1 &1276670926
 GameObject:
   m_ObjectHideFlags: 0

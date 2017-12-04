@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 206759372}
   - component: {fileID: 206759371}
   - component: {fileID: 206759370}
+  - component: {fileID: 206759373}
   m_Layer: 0
   m_Name: customer (14)
   m_TagString: NPC
@@ -418,6 +419,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &206759373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 206759368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talks: 1
+  name: MJ Smallboi
+  message: Jou jou what's rapping dude?
 --- !u!1 &267326140
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +546,7 @@ GameObject:
   - component: {fileID: 268711695}
   - component: {fileID: 268711694}
   - component: {fileID: 268711693}
+  - component: {fileID: 268711696}
   m_Layer: 0
   m_Name: customer (8)
   m_TagString: NPC
@@ -622,6 +638,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &268711696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 268711691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talks: 1
+  name: 'Richie '
+  message: Can't I get any privacy?!
 --- !u!1 &296134000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,6 +1377,7 @@ GameObject:
   - component: {fileID: 881499524}
   - component: {fileID: 881499523}
   - component: {fileID: 881499522}
+  - component: {fileID: 881499525}
   m_Layer: 0
   m_Name: customer (31)
   m_TagString: NPC
@@ -1438,6 +1469,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &881499525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 881499520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talks: 1
+  name: Kylie
+  message: Excuse me are you the waiter?!
 --- !u!1 &902145431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,6 +1908,7 @@ GameObject:
   - component: {fileID: 1370492549}
   - component: {fileID: 1370492548}
   - component: {fileID: 1370492547}
+  - component: {fileID: 1370492550}
   m_Layer: 0
   m_Name: customer (28)
   m_TagString: NPC
@@ -1954,6 +2000,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1370492550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1370492545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talks: 1
+  name: Nurse
+  message: Should probably get back to work...
 --- !u!1 &1393524442
 GameObject:
   m_ObjectHideFlags: 0

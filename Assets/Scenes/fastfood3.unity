@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 69798879}
   - component: {fileID: 69798878}
   - component: {fileID: 69798877}
+  - component: {fileID: 69798881}
   m_Layer: 0
   m_Name: customer (9)
   m_TagString: NPC
@@ -214,6 +215,20 @@ Transform:
   m_Father: {fileID: 1212092461}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &69798881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69798876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talks: 1
+  name: Unknown
+  message: Slurp slurp nam nam...
 --- !u!1 &137446914
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +342,7 @@ GameObject:
   - component: {fileID: 152479358}
   - component: {fileID: 152479357}
   - component: {fileID: 152479356}
+  - component: {fileID: 152479360}
   m_Layer: 0
   m_Name: customer (22)
   m_TagString: NPC
@@ -418,6 +434,20 @@ Transform:
   m_Father: {fileID: 1212092461}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &152479360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 152479355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talks: 1
+  name: Hannah Montana
+  message: Get out of my personal space good sir
 --- !u!1 &238452637
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +513,7 @@ GameObject:
   - component: {fileID: 250410141}
   - component: {fileID: 250410140}
   - component: {fileID: 250410139}
+  - component: {fileID: 250410143}
   m_Layer: 0
   m_Name: customer (19)
   m_TagString: NPC
@@ -574,6 +605,20 @@ Transform:
   m_Father: {fileID: 1212092461}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &250410143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 250410138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talks: 1
+  name: Lilybet
+  message: Trying to eat some cereal here mate!
 --- !u!1 &412535189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,6 +2372,7 @@ GameObject:
   - component: {fileID: 1609983033}
   - component: {fileID: 1609983032}
   - component: {fileID: 1609983031}
+  - component: {fileID: 1609983035}
   m_Layer: 0
   m_Name: customer (13)
   m_TagString: NPC
@@ -2418,6 +2464,20 @@ Transform:
   m_Father: {fileID: 1212092461}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1609983035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1609983030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talks: 1
+  name: Steve Buschemi
+  message: Hmm.. gonna get laid tonight
 --- !u!1 &1746015548
 GameObject:
   m_ObjectHideFlags: 0

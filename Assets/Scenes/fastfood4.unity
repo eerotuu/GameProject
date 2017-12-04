@@ -588,6 +588,7 @@ GameObject:
   - component: {fileID: 497681711}
   - component: {fileID: 497681710}
   - component: {fileID: 497681709}
+  - component: {fileID: 497681712}
   m_Layer: 0
   m_Name: customer (10)
   m_TagString: NPC
@@ -679,6 +680,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &497681712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 497681707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talks: 1
+  name: M.L Green
+  message: Winner winner Chicken dinner!
 --- !u!1 &561994321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2021,6 +2036,7 @@ GameObject:
   - component: {fileID: 1327175422}
   - component: {fileID: 1327175421}
   - component: {fileID: 1327175420}
+  - component: {fileID: 1327175423}
   m_Layer: 0
   m_Name: customer (17)
   m_TagString: NPC
@@ -2112,6 +2128,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1327175423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1327175418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talks: 1
+  name: Unknown
+  message: Do I know you?
 --- !u!1 &1642038524
 GameObject:
   m_ObjectHideFlags: 0
