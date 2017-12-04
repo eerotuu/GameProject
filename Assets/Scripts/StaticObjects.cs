@@ -10,6 +10,18 @@ public class StaticObjects
 	public static bool FREE_CHEESEBURGER;
 	public static bool FREE_CHEESEBURGER_GAINED;
 
-	public static int QUEST_FAKEDOCTOR;
+	public static int QUEST_FAKEDOCTOR = 0;
+
+	public static string DOCTOR_DICK_STATUS = DialogueMap.DEFAULT;
+	public static bool DOCTOR_DICK_HASQUESTION = true;
+
+	public static string NURSE_NANCY_STATUS = DialogueMap.DEFAULT;
+	public static bool NURSE_NANCY_HASQUESTION = true;
+
+	public static string MAFIA_STATUS = DialogueMap.DEFAULT;
+	public static bool MAFIA_HASQUESTION = true;
+
+	public static bool OBJECTIVE_FAKE_DOCTOR_HASQUESTION = false;
+	public static string OBJECTIVE_FAKE_DOCTOR_STATUS = DialogueMap.DEFAULT;
 
 }

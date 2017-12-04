@@ -9,6 +9,7 @@ public class PlayerCollision : MonoBehaviour
 
 	public InteractiveNPC currentIntreactiveNPC;
 	GenericNPC currentGenericNpc;
+	QuestNPC currentQuestNpc;
 	Npc npc;
 	PointerController interact;
 	Image iButton;
@@ -42,6 +43,10 @@ public class PlayerCollision : MonoBehaviour
 			}
 
 		}
+
+		if (interact.getPressed () && currentQuestNpc) {
+			currentQuestNpc.Talk ();
+		}
 		
 	}
 
@@ -54,6 +59,10 @@ public class PlayerCollision : MonoBehaviour
 
 		if (other.gameObject.GetComponent<GenericNPC> ()) {
 			currentGenericNpc = other.gameObject.GetComponent <GenericNPC> ();
+			iButton.color = Color.green;
+		}
+		if (other.gameObject.GetComponent<QuestNPC> ()) {
+			currentQuestNpc = other.gameObject.GetComponent <QuestNPC> ();
 			iButton.color = Color.green;
 		}
 		//Hospial door out
@@ -150,23 +159,23 @@ public class PlayerCollision : MonoBehaviour
 		//NPC INTERACTION
 
 		//Doctor in hospital
-		if (other.gameObject.name.Equals ("doctor")) {
+		/*if (other.gameObject.name.Equals ("doctor")) {
 			iButton.color = Color.green;
 			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
 			npc = currentIntreactiveNPC.DoctorDick;
-		}
+		}*/
 
-		if (other.gameObject.name.Equals ("doctor2")) {
+		/*if (other.gameObject.name.Equals ("doctor2")) {
 			iButton.color = Color.green;
 			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
 			npc = currentIntreactiveNPC.DoctorNick;
-		}
+		}*/
 
-		if (other.gameObject.name.Equals ("nurse1")) {
+		/*if (other.gameObject.name.Equals ("nurse1")) {
 			iButton.color = Color.green;
 			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
 			npc = currentIntreactiveNPC.NurseNancy;
-		}
+		}*/
 
 		if (other.gameObject.name.Equals ("DrugBuyer")) {
 			iButton.color = Color.green;
@@ -210,6 +219,15 @@ public class PlayerCollision : MonoBehaviour
 				iButton.color = Color.white;
 
 			}
+		}
+
+		if (other.gameObject.GetComponent <QuestNPC> ()) {
+			QuestNPC npcCheck = other.gameObject.GetComponent <QuestNPC> ();
+			currentQuestNpc.StopTalk ();
+			currentQuestNpc = null;
+			iButton.color = Color.white;
+
+
 		}
 	}
 		

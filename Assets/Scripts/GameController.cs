@@ -42,6 +42,8 @@ public class GameController : MonoBehaviour
 		BulkText.text = "Bulk: " + player.GetBulk () + " kcal";
 		objectiveStatus.text = status;
 
+
+
 	}
 
 	/// <summary>

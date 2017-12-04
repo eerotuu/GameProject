@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
 	InteractiveNPC iNpc;
 	string currentNpc;
 	Npc npc;
+	QuestNPC questNPC;
 
 	//DIALOGUE BUTTONS.
 	public GameObject dialogueBox;
@@ -37,6 +38,7 @@ public class DialogueManager : MonoBehaviour
 
 	//GAME OBJECTS.
 	GameItem medicine;
+	GameItem poison;
 
 
 	//For Locking Dialogue Boxes.
@@ -91,6 +93,11 @@ public class DialogueManager : MonoBehaviour
 			DestroyObject (GameObject.Find ("objectiveVegan"));
 		}
 
+		if (StaticObjects.QUEST_FAKEDOCTOR > 1 && GameObject.Find ("FakeDoctorObjectiveNPC") && !yes.getPressed ()) {
+			dialogueBox.SetActive (false);
+			DestroyObject (GameObject.Find ("FakeDoctorObjectiveNPC"));
+		}
+
 		if (isActive && interact.getPressed () && !locked) {
 			isActive = false;
 			locked = true;
@@ -140,94 +147,141 @@ public class DialogueManager : MonoBehaviour
 
 
 		//WHEN YES PRESSED IN DIALOGUE
-		if (isActive && yes.getPressed () && !pressed) { //!!! DON'T CHANGE THIS && !pressed
-			pressed = true;
-
-			//Doctor Dick Dialogue
-			if (currentNpc.Equals (DialogueMap.DOCTOR_DICK) && !StaticObjects.GOT_MEDS) {
-				dialogueText.text = dialogueMap.GetDialogue (DialogueMap.DOCTOR_DICK); // "Thats good you are changing your habits!\nGo fetch your meds from Nurse Nancy and you are free to go.";
-				iNpc.ChangeDialogueStatus (npc, dialogueMap.GetDialogue (DialogueMap.DOCTOR_DICK), false, false);
-				if (StaticObjects.TALKED_TO_NANCY) {
-					iNpc.ChangeDialogueStatus (iNpc.NurseNancy, "Alright here is your meds. Stay healthy!", false, false);
-				}
-				StaticObjects.GOT_MEDS = true;
-			}
-
-			//Nurse Nancy Dialogue
-			if (ObjectiveStatus == 0 && (currentNpc.Equals (DialogueMap.NURSE_NANCY) && StaticObjects.GOT_MEDS || currentNpc.Equals (DialogueMap.NURSE_NANCY) && StaticObjects.GOT_MEDS && StaticObjects.TALKED_TO_NANCY)) {
-				medicine = new GameItem ("medicine", "meds");
-				gameController.player.inventory.AddItem (medicine);
-				gameController.player.inventory.ListInventory ();
-				ObjectiveStatus += 1;
-				dialogueText.text = dialogueMap.GetDialogue (DialogueMap.NURSE_NANCY);
-				iNpc.ChangeDialogueStatus (npc, "You already got your meds junkie!", false, false);
-			} else if (currentNpc.Equals (DialogueMap.NURSE_NANCY) && !StaticObjects.GOT_MEDS && !StaticObjects.TALKED_TO_NANCY) {
-				dialogueText.text = "Go talk to Doctor Dick first";
-				StaticObjects.TALKED_TO_NANCY = true;
-			}
-
-			//Drug Buyer's Dialogue
-			if (ObjectiveStatus == 2 && currentNpc.Equals ("Drug Buyer")) {
-				gameController.player.inventory.RemoveItem (medicine);
-				gameController.player.inventory.ListInventory ();
-				dialogueText.text = "Cool! You'll get 20$ for this junk\n\nIf you find more.. stuff.. to sell come see me.";
-				gameController.player.wallet.AddMoney (20);
-				ObjectiveStatus += 1;
-				gameController.ChangeObjective ("Gain your daily 1500kcal");
-			} else if (ObjectiveStatus != 2 && currentNpc.Equals ("Drug Buyer")) {
-				dialogueText.text = "Liar!";
-			}
-
-			if (currentNpc.Equals ("Man")) {
-				StaticObjects.OBJECTIVE_VEGAN_BEATED = true;
-				gameController.player.wallet.AddMoney (50);
-				GameItem key = new GameItem ("key", "key");
-				gameController.player.inventory.AddItem (key);
-				gameController.player.inventory.ListInventory ();
-			}
-
-		}
-
-		//WHEN NO IS PRESSED IN DIALOGUE
-		if (isActive && no.getPressed () && !pressed) { 
-			pressed = true;
-
-			//Doctor Dick Dialogue
-			if (currentNpc.Equals (DialogueMap.DOCTOR_DICK) && !StaticObjects.GOT_MEDS) {
-				dialogueText.text = "Sir. I Think You should reconsider.";
-			}
-
-			//Nurse Nancy Dialogue
-			if (currentNpc.Equals (DialogueMap.NURSE_NANCY)) {
-				dialogueText.text = "Ah...";
-			}
-
-			//Drug Buyer's Dialogue
-			if (currentNpc.Equals ("Drug Buyer")) {
-				dialogueText.text = "Fuck you too Bobby..";
-			}
-
-			if (currentNpc.Equals ("Man")) {
-				dialogueText.text = "Filthy meat lover...";
-			}
-		}
-			
-		//SIDE QUESTS
 		if (isActive) {
-			if (yes.getPressed () && !pressed) {
+			if (yes.getPressed () && !pressed) { //!!! DON'T CHANGE THIS && !pressed
+				pressed = true;
 
+				//NEW SYSTEM
 				switch (currentNpc) {
 				case DialogueMap.VEGANVILLE_MAFIA:
-					dialogueText.text = dialogueMap.GetDialogue (DialogueMap.VEGANVILLE_MAFIA);
+					if (StaticObjects.QUEST_FAKEDOCTOR == 0) {
+						dialogueText.text = dialogueMap.GetDialogue (DialogueMap.VEGANVILLE_MAFIA + DialogueMap.STEP_1);
+						//questNPC.ChangeStatus (DialogueMap.STEP_2, false);
+						StaticObjects.MAFIA_STATUS = DialogueMap.STEP_2;
+						StaticObjects.MAFIA_HASQUESTION = true;
+						StaticObjects.QUEST_FAKEDOCTOR += 1;
+						poison = new GameItem ("poison", "poison");
+						gameController.player.inventory.AddItem (poison);
+						gameController.player.inventory.ListInventory ();
+						StaticObjects.OBJECTIVE_FAKE_DOCTOR_HASQUESTION = true;
+						StaticObjects.OBJECTIVE_FAKE_DOCTOR_STATUS = DialogueMap.STEP_1;
+						//GameObject.Find ("FakeDoctorObjectiveNPC").GetComponent<QuestNPC> ().hasQuestion = true; // del this later.
+						//GameObject.Find ("FakeDoctorObjectiveNPC").GetComponent<QuestNPC> ().questStatus = DialogueMap.STEP_1; // del this later,
+					} else if (StaticObjects.QUEST_FAKEDOCTOR == 2) {
+						gameController.player.wallet.AddMoney (1000);
+						dialogueText.text = dialogueMap.GetDialogue (DialogueMap.VEGANVILLE_MAFIA + DialogueMap.STEP_3);
+						StaticObjects.MAFIA_STATUS = DialogueMap.STEP_4;
+					} else {
+						dialogueText.text = "Liar. Go do your job if wish to claim the reward.";
+					}
+					break;
+				case DialogueMap.DOCTOR_DICK:
+					dialogueText.text = dialogueMap.GetDialogue (DialogueMap.DOCTOR_DICK + DialogueMap.STEP_1);
+					questNPC.ChangeStatus (DialogueMap.STEP_1, false);
+					StaticObjects.DOCTOR_DICK_STATUS = DialogueMap.STEP_1;
+					StaticObjects.DOCTOR_DICK_HASQUESTION = false;
+					StaticObjects.GOT_MEDS = true;
+					if (StaticObjects.TALKED_TO_NANCY) {
+						GameObject.Find ("nurse1").GetComponent<QuestNPC> ().ChangeStatus (DialogueMap.DEFAULT, true);
+						StaticObjects.NURSE_NANCY_HASQUESTION = true;
+					}
+					break;
+				case DialogueMap.NURSE_NANCY:
+					if (ObjectiveStatus == 0 && StaticObjects.GOT_MEDS) {
+						medicine = new GameItem ("medicine", "meds");
+						gameController.player.inventory.AddItem (medicine);
+						gameController.player.inventory.ListInventory ();
+						ObjectiveStatus += 1;
+						dialogueText.text = dialogueMap.GetDialogue (DialogueMap.NURSE_NANCY + DialogueMap.STEP_2);
+						questNPC.ChangeStatus (DialogueMap.STEP_3, false);
+						StaticObjects.NURSE_NANCY_STATUS = DialogueMap.STEP_3;
+						StaticObjects.NURSE_NANCY_HASQUESTION = false;
+					} else if (!StaticObjects.GOT_MEDS && !StaticObjects.TALKED_TO_NANCY) {
+						dialogueText.text = dialogueMap.GetDialogue (DialogueMap.NURSE_NANCY + DialogueMap.STEP_1);
+						questNPC.ChangeStatus (DialogueMap.STEP_1, false);
+						StaticObjects.NURSE_NANCY_STATUS = DialogueMap.STEP_1;
+						StaticObjects.NURSE_NANCY_HASQUESTION = false;
+						StaticObjects.TALKED_TO_NANCY = true;
+					}
+					break;
+				case DialogueMap.BAD_LUCK_BRIAN:
+					if (StaticObjects.QUEST_FAKEDOCTOR == 1) {
+						StaticObjects.QUEST_FAKEDOCTOR += 1;
+						gameController.player.inventory.RemoveItem (poison);
+						gameController.player.inventory.ListInventory ();
+						//StaticObjects.MAFIA_STATUS = DialogueMap.STEP_3;
+					}
 					break;
 				}
+				//Doctor Dick Dialogue
+				/*if (currentNpc.Equals (DialogueMap.DOCTOR_DICK) && !StaticObjects.GOT_MEDS) {
+					dialogueText.text = dialogueMap.GetDialogue (DialogueMap.DOCTOR_DICK); 
+					iNpc.ChangeDialogueStatus (npc, dialogueMap.GetDialogue (DialogueMap.DOCTOR_DICK), false, false);
+					if (StaticObjects.TALKED_TO_NANCY) {
+						iNpc.ChangeDialogueStatus (iNpc.NurseNancy, "Alright here is your meds. Stay healthy!", false, false);
+					}
+					StaticObjects.GOT_MEDS = true;
+				}*/
+
+				//Nurse Nancy Dialogue
+				/*if (ObjectiveStatus == 0 && (currentNpc.Equals (DialogueMap.NURSE_NANCY) && StaticObjects.GOT_MEDS || currentNpc.Equals (DialogueMap.NURSE_NANCY) && StaticObjects.GOT_MEDS && StaticObjects.TALKED_TO_NANCY)) {
+					medicine = new GameItem ("medicine", "meds");
+					gameController.player.inventory.AddItem (medicine);
+					gameController.player.inventory.ListInventory ();
+					ObjectiveStatus += 1;
+					dialogueText.text = dialogueMap.GetDialogue (DialogueMap.NURSE_NANCY);
+					iNpc.ChangeDialogueStatus (npc, "You already got your meds junkie!", false, false);
+				} else if (currentNpc.Equals (DialogueMap.NURSE_NANCY) && !StaticObjects.GOT_MEDS && !StaticObjects.TALKED_TO_NANCY) {
+					dialogueText.text = "Go talk to Doctor Dick first";
+					StaticObjects.TALKED_TO_NANCY = true;
+				}*/
+
+				//Drug Buyer's Dialogue
+				if (ObjectiveStatus == 2 && currentNpc.Equals ("Drug Buyer")) {
+					gameController.player.inventory.RemoveItem (medicine);
+					gameController.player.inventory.ListInventory ();
+					dialogueText.text = "Cool! You'll get 20$ for this junk\n\nIf you find more.. stuff.. to sell come see me.";
+					gameController.player.wallet.AddMoney (20);
+					ObjectiveStatus += 1;
+					gameController.ChangeObjective ("Gain your daily 1500kcal");
+				} else if (ObjectiveStatus != 2 && currentNpc.Equals ("Drug Buyer")) {
+					dialogueText.text = "Liar!";
+				}
+
+				if (currentNpc.Equals ("Man")) {
+					StaticObjects.OBJECTIVE_VEGAN_BEATED = true;
+					gameController.player.wallet.AddMoney (50);
+					GameItem key = new GameItem ("key", "key");
+					gameController.player.inventory.AddItem (key);
+					gameController.player.inventory.ListInventory ();
+				}
+
 			}
 
-			if (no.getPressed () && !pressed) {
+			//WHEN NO IS PRESSED IN DIALOGUE
+			if (no.getPressed () && !pressed) { 
+				pressed = true;
 
+				//Doctor Dick Dialogue
+				if (currentNpc.Equals (DialogueMap.DOCTOR_DICK) && !StaticObjects.GOT_MEDS) {
+					dialogueText.text = "Sir. I Think You should reconsider.";
+				}
+
+				//Nurse Nancy Dialogue
+				if (currentNpc.Equals (DialogueMap.NURSE_NANCY)) {
+					dialogueText.text = "Ah...";
+				}
+
+				//Drug Buyer's Dialogue
+				if (currentNpc.Equals ("Drug Buyer")) {
+					dialogueText.text = "Fuck you too Bobby..";
+				}
+
+				if (currentNpc.Equals ("Man")) {
+					dialogueText.text = "Filthy meat lover...";
+				}
 			}
 		}
-
 
 	}
 
@@ -291,16 +345,20 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
-	public static void SideQuestDialogue (string name, bool hasQuestion)
+	public void SideQuestDialogue (QuestNPC questNpc, string name, bool hasQuestion, string status)
 	{
-		/*if (!isActive) {
+		if (!isActive) {
 			isActive = true;
+			questNPC = questNpc;
 			dialogueButtons.SetActive (hasQuestion);
+			dialogueButtonsSell.SetActive (false);
+			dialogueOkButton.SetActive (false);
 			currentNpc = name;
 			dialgueName.text = name + ":";
+			dialogueText.text = dialogueMap.GetDialogue (name + status);
 			locked = true;
 			isLocked = true;
-		}*/
+		}
 
 	}
 		
