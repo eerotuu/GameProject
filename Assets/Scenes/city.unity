@@ -810,7 +810,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!212 &720686909
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1278,10 +1278,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1091641823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   talks: 1
+  name: Ernest Janssen
+  message: I hate this vegan crap!
 --- !u!58 &1091641826
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1296,7 +1298,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!212 &1091641827
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1615,10 +1617,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1438012219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   talks: 1
+  name: Random Esa
+  message: Hello m8!
 --- !u!58 &1438012222
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1633,7 +1637,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!212 &1438012223
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2241,10 +2245,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1951264888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talks: 0
+  talks: 1
+  name: Vera Egan
+  message: Meat is murder!
 --- !u!58 &1951264891
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2470,10 +2476,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1996827091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   talks: 1
+  name: Bruce Smith
+  message: I'm not sure about this vegan thing
 --- !u!58 &1996827094
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2488,7 +2496,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!212 &1996827095
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2572,10 +2580,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2018276559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
+  m_Script: {fileID: 11500000, guid: dcede2e664fde804db819733374da254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talks: 1
+  talks: 0
+  name: Jerry Cotton
+  message: U fokin wot m8!
 --- !u!58 &2018276562
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2590,7 +2600,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!212 &2018276563
 SpriteRenderer:
   m_ObjectHideFlags: 0
