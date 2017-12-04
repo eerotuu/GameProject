@@ -34,12 +34,6 @@ public class PlayerCollision : MonoBehaviour
 			}
 
 		}
-
-		/*if (currentIntreactiveNPC) {
-			if (npc == currentIntreactiveNPC.hospitalDoor) {
-				currentIntreactiveNPC.Talk (npc, currentIntreactiveNPC);
-			}
-		}*/
 		
 	}
 

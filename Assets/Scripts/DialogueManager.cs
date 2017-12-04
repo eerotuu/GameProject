@@ -12,6 +12,9 @@ public class DialogueManager : MonoBehaviour
 	//GAMECONTROLLER
 	private GameController gameController;
 
+	//DIALOGUEMAP
+	private DialogueMap dialogueMap;
+
 	//NPC VARIABLES
 	InteractiveNPC iNpc;
 	string currentNpc;
@@ -72,6 +75,8 @@ public class DialogueManager : MonoBehaviour
 		gameController.ChangeObjective ("Leave Hospital");
 		yes.getPressed ();
 		dialogueButtons.SetActive (false);
+
+		dialogueMap = new DialogueMap ();
 
 	}
 
@@ -137,9 +142,9 @@ public class DialogueManager : MonoBehaviour
 			pressed = true;
 
 			//Doctor Dick Dialogue
-			if (currentNpc.Equals ("Doctor Dick") && !meds) {
-				dialogueText.text = "Thats good you are changing your habits!\nGo fetch your meds from Nurse Nancy and you are free to go.";
-				iNpc.ChangeDialogueStatus (npc, "Thats good you are changing your habits!\nGo fetch your meds from Nurse Nancy and you are free to go.", false, false);
+			if (currentNpc.Equals (DialogueMap.DOCTOR_DICK) && !meds) {
+				dialogueText.text = dialogueMap.GetDialogue (DialogueMap.DOCTOR_DICK); // "Thats good you are changing your habits!\nGo fetch your meds from Nurse Nancy and you are free to go.";
+				iNpc.ChangeDialogueStatus (npc, dialogueMap.GetDialogue (DialogueMap.DOCTOR_DICK), false, false);
 				if (talkedToNancy) {
 					iNpc.ChangeDialogueStatus (iNpc.NurseNancy, "Alright here is your meds. Stay healthy!", false, false);
 				}
@@ -147,14 +152,14 @@ public class DialogueManager : MonoBehaviour
 			}
 
 			//Nurse Nancy Dialogue
-			if (ObjectiveStatus == 0 && (currentNpc.Equals ("Nurse Nancy") && meds || currentNpc.Equals ("Nurse Nancy") && meds && talkedToNancy)) {
+			if (ObjectiveStatus == 0 && (currentNpc.Equals (DialogueMap.NURSE_NANCY) && meds || currentNpc.Equals (DialogueMap.NURSE_NANCY) && meds && talkedToNancy)) {
 				medicine = new GameItem ("medicine", "meds");
 				GameItem key = new GameItem ("key", "key");
 				gameController.player.inventory.AddItem (medicine);
 				gameController.player.inventory.AddItem (key);
 				gameController.player.inventory.ListInventory ();
 				ObjectiveStatus += 1;
-				dialogueText.text = "Alright, here is your meds.\nStay healthy!";
+				dialogueText.text = dialogueMap.GetDialogue (DialogueMap.NURSE_NANCY);
 				iNpc.ChangeDialogueStatus (npc, "You already got your meds junkie!", false, false);
 			} else if (currentNpc.Equals ("Nurse Nancy") && !meds && !talkedToNancy) {
 				dialogueText.text = "Go talk to Doctor Dick first";

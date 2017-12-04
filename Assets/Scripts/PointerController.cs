@@ -18,7 +18,6 @@ public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpH
 
 	}
 
-
 	public void OnPointerDown (PointerEventData eventData)
 	{
 		pressed = true;
@@ -28,22 +27,5 @@ public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpH
 	{
 		return pressed;
 	}
-
-	public bool getFalse ()
-	{
-		return false;
-	}
-
-	public void HideButton ()
-	{
-		this.gameObject.SetActive (false);
-		/*GameObject obj = GetComponent<GameObject> ();
-		obj.SetActive (false);*/
-	}
-
-	public void ShowButton ()
-	{
-		this.gameObject.SetActive (true);
-	}
-
+		
 }
