@@ -38,7 +38,6 @@ public class InteractiveNPC : MonoBehaviour
 	public void Talk (Npc npc, InteractiveNPC iNpc)
 	{
 		if (!dManager.isLocked) {
-			//dManager.Dialogue (name, message, hasQuestion, sells);
 			dManager.Dialogue (iNpc, npc, npc.name, npc.message, npc.hasQuestion, npc.sells);
 		}
 

@@ -9,8 +9,6 @@ public class Inventory
 	private GameItem currentItem;
 	Image itemSlot0Image;
 	Image itemSlot1Image;
-	/*GameObject itemSlot0;
-	GameObject itemSlot1;*/
 
 
 	public Inventory ()

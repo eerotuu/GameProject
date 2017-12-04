@@ -26,8 +26,7 @@ public class DialogueMap
 	{
 		dialogues.Add (DOCTOR_DICK, "Thats good you are changing your habits!\nGo fetch your meds from Nurse Nancy and you are free to go.");
 		dialogues.Add (NURSE_NANCY, "Alright, here is your meds.\nStay healthy!");
-		//dialogues.Add (DOCTOR_DICK, "benis");
-		//dialogues.Add (DOCTOR_DICK, "jee");
+
 	}
 	
 }

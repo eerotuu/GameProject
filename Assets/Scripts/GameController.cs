@@ -67,6 +67,8 @@ public class GameController : MonoBehaviour
 		SceneManager.LoadScene (sceneToLoad, LoadSceneMode.Additive);
 		GameObject.Find ("Player").transform.position = new Vector2 (posX, posY);
 		Debug.Log ("Scene changed to " + sceneToLoad);
+
+
 	}
 
 

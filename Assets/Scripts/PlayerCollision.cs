@@ -8,6 +8,7 @@ public class PlayerCollision : MonoBehaviour
 {
 
 	public InteractiveNPC currentIntreactiveNPC;
+	GenericNPC currentGenericNpc;
 	Npc npc;
 	PointerController interact;
 	Image iButton;
@@ -34,6 +35,13 @@ public class PlayerCollision : MonoBehaviour
 			}
 
 		}
+
+		if (interact.getPressed () && currentGenericNpc) {
+			if (currentGenericNpc.talks) {
+				currentGenericNpc.Talk ();
+			}
+
+		}
 		
 	}
 
@@ -43,6 +51,11 @@ public class PlayerCollision : MonoBehaviour
 	/// <param name="other">Other.</param>
 	void OnTriggerEnter2D (Collider2D other)
 	{
+
+		if (other.gameObject.GetComponent<GenericNPC> ()) {
+			currentGenericNpc = other.gameObject.GetComponent <GenericNPC> ();
+			iButton.color = Color.green;
+		}
 		//Hospial door out
 		if (other.gameObject.name.Equals ("Door") && dManager.ObjectiveStatus > 0) {
 			gameController.ChangeScene ("hospital", "city", 84f, -72.5f);
@@ -164,7 +177,7 @@ public class PlayerCollision : MonoBehaviour
 			iButton.color = Color.green;
 			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
 			npc = currentIntreactiveNPC.MaleVegan;
-			if (dManager.ObjectiveStatus == 4) {
+			if (StaticObjects.FREE_CHEESEBURGER) {
 				currentIntreactiveNPC.ChangeDialogueStatus (npc, "Hi I'm Vegan\n\n\"Beat him?\"", true, false);
 			}
 
@@ -184,6 +197,16 @@ public class PlayerCollision : MonoBehaviour
 			if (npcCheck.talks) {
 				currentIntreactiveNPC.StopTalk ();
 				currentIntreactiveNPC = null;
+				iButton.color = Color.white;
+
+			}
+		}
+
+		if (other.gameObject.GetComponent <GenericNPC> ()) {
+			GenericNPC npcCheck = other.gameObject.GetComponent <GenericNPC> ();
+			if (npcCheck.talks) {
+				currentGenericNpc.StopTalk ();
+				currentGenericNpc = null;
 				iButton.color = Color.white;
 
 			}

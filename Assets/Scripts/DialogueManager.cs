@@ -33,8 +33,6 @@ public class DialogueManager : MonoBehaviour
 	private PointerController ok;
 
 	//GAMEOBJECTIVE AND DIALOGUE STATUSES.
-	private bool meds;
-	bool talkedToNancy;
 	public int ObjectiveStatus;
 
 	//GAME OBJECTS.
@@ -85,8 +83,14 @@ public class DialogueManager : MonoBehaviour
 	/// </summary>
 	void Update ()
 	{
-		
 		CheckPressed ();
+		dialogueBox.SetActive (isActive);
+
+		if (StaticObjects.OBJECTIVE_VEGAN_BEATED && GameObject.Find ("objectiveVegan") && !yes.getPressed ()) {
+			dialogueBox.SetActive (false);
+			DestroyObject (GameObject.Find ("objectiveVegan"));
+		}
+
 		if (isActive && interact.getPressed () && !locked) {
 			isActive = false;
 			locked = true;
@@ -101,35 +105,33 @@ public class DialogueManager : MonoBehaviour
 		}
 
 		//BUY
+		if (isActive && currentNpc.Equals (DialogueMap.BOB_BURGER) && StaticObjects.OBJECTIVE_VEGAN_BEATED && !StaticObjects.FREE_CHEESEBURGER_GAINED) {
+			gameController.player.AddBulk (300);
+			dialogueText.text = "Oh you got him to leave? Here is one cheeseburger as promised. \n\nWould you like to buy more?";
+			StaticObjects.FREE_CHEESEBURGER_GAINED = true;
+		}
+		 
 		if (isActive && buy.getPressed () && !pressed) { //!!! DON'T CHANGE THIS
 			pressed = true;
 			if (currentNpc.Equals ("Bob Burger")) {
-				if (ObjectiveStatus == 3) {
-					ObjectiveStatus += 1;
-					gameController.ChangeObjective ("Beat up vegan outside Bob's Burgers");
-				}
-
-
 				if (gameController.player.wallet.GetSaldo () > 0) {
 					gameController.player.AddBulk (300);
 					gameController.player.wallet.UseMoney (10);
 					Debug.Log ("Bought CheeseBurger!");
 					dialogueText.text = "There you go son, one CheeseBurger.";
 
-					if (ObjectiveStatus == 3 || ObjectiveStatus == 4) {
-						if (ObjectiveStatus == 3) {
-							ObjectiveStatus += 1;
-							gameController.ChangeObjective ("Drive off a vegan outside Joe's joint");
-						}
+					if (!StaticObjects.OBJECTIVE_VEGAN_BEATED) {
 						dialogueText.text += "\n\nIf you can drive off that annoying vegan outside, I'll give you a free burger.";
+						StaticObjects.FREE_CHEESEBURGER = true;
 					}
 
 				} else {
 					dialogueText.text = "Son, you poor as fuck!";
-					if (ObjectiveStatus == 3 || ObjectiveStatus == 4) {
+					if (!StaticObjects.OBJECTIVE_VEGAN_BEATED) {
 						dialogueText.text += "\n\nIf you can drive off that annoying vegan lady outside I'll give you free burger.";
+						StaticObjects.FREE_CHEESEBURGER = true;
 					} else {
-						dialogueText.text += "Go get some money first.";
+						dialogueText.text += "\nGo get some money first.";
 					}
 				}
 			}
@@ -138,21 +140,21 @@ public class DialogueManager : MonoBehaviour
 
 
 		//WHEN YES PRESSED IN DIALOGUE
-		if (isActive && yes.getPressed () && !pressed) { //!!! DON'T CHANGE THIS
+		if (isActive && yes.getPressed () && !pressed) { //!!! DON'T CHANGE THIS && !pressed
 			pressed = true;
 
 			//Doctor Dick Dialogue
-			if (currentNpc.Equals (DialogueMap.DOCTOR_DICK) && !meds) {
+			if (currentNpc.Equals (DialogueMap.DOCTOR_DICK) && !StaticObjects.GOT_MEDS) {
 				dialogueText.text = dialogueMap.GetDialogue (DialogueMap.DOCTOR_DICK); // "Thats good you are changing your habits!\nGo fetch your meds from Nurse Nancy and you are free to go.";
 				iNpc.ChangeDialogueStatus (npc, dialogueMap.GetDialogue (DialogueMap.DOCTOR_DICK), false, false);
-				if (talkedToNancy) {
+				if (StaticObjects.TALKED_TO_NANCY) {
 					iNpc.ChangeDialogueStatus (iNpc.NurseNancy, "Alright here is your meds. Stay healthy!", false, false);
 				}
-				meds = true;
+				StaticObjects.GOT_MEDS = true;
 			}
 
 			//Nurse Nancy Dialogue
-			if (ObjectiveStatus == 0 && (currentNpc.Equals (DialogueMap.NURSE_NANCY) && meds || currentNpc.Equals (DialogueMap.NURSE_NANCY) && meds && talkedToNancy)) {
+			if (ObjectiveStatus == 0 && (currentNpc.Equals (DialogueMap.NURSE_NANCY) && StaticObjects.GOT_MEDS || currentNpc.Equals (DialogueMap.NURSE_NANCY) && StaticObjects.GOT_MEDS && StaticObjects.TALKED_TO_NANCY)) {
 				medicine = new GameItem ("medicine", "meds");
 				GameItem key = new GameItem ("key", "key");
 				gameController.player.inventory.AddItem (medicine);
@@ -161,9 +163,9 @@ public class DialogueManager : MonoBehaviour
 				ObjectiveStatus += 1;
 				dialogueText.text = dialogueMap.GetDialogue (DialogueMap.NURSE_NANCY);
 				iNpc.ChangeDialogueStatus (npc, "You already got your meds junkie!", false, false);
-			} else if (currentNpc.Equals ("Nurse Nancy") && !meds && !talkedToNancy) {
+			} else if (currentNpc.Equals (DialogueMap.NURSE_NANCY) && !StaticObjects.GOT_MEDS && !StaticObjects.TALKED_TO_NANCY) {
 				dialogueText.text = "Go talk to Doctor Dick first";
-				talkedToNancy = true;
+				StaticObjects.TALKED_TO_NANCY = true;
 			}
 
 			//Drug Buyer's Dialogue
@@ -173,11 +175,14 @@ public class DialogueManager : MonoBehaviour
 				dialogueText.text = "Cool! You'll get 20$ for this junk\n\nIf you find more.. stuff.. to sell come see me.";
 				gameController.player.wallet.AddMoney (20);
 				ObjectiveStatus += 1;
-				gameController.ChangeObjective ("Spend your money on burgers");
+				gameController.ChangeObjective ("Gain your daily calories: 15000kcal");
 			} else if (ObjectiveStatus != 2 && currentNpc.Equals ("Drug Buyer")) {
 				dialogueText.text = "Liar!";
 			}
-				
+
+			if (currentNpc.Equals ("Man")) {
+				StaticObjects.OBJECTIVE_VEGAN_BEATED = true;
+			}
 
 		}
 
@@ -186,12 +191,12 @@ public class DialogueManager : MonoBehaviour
 			pressed = true;
 
 			//Doctor Dick Dialogue
-			if (currentNpc.Equals ("Doctor Dick") && !meds) {
+			if (currentNpc.Equals (DialogueMap.DOCTOR_DICK) && !StaticObjects.GOT_MEDS) {
 				dialogueText.text = "Sir. I Think You should reconsider.";
 			}
 
 			//Nurse Nancy Dialogue
-			if (currentNpc.Equals ("Nurse Nancy")) {
+			if (currentNpc.Equals (DialogueMap.NURSE_NANCY)) {
 				dialogueText.text = "Ah...";
 			}
 
@@ -200,10 +205,13 @@ public class DialogueManager : MonoBehaviour
 				dialogueText.text = "Fuck you too Bobby..";
 			}
 
+			if (currentNpc.Equals ("Man")) {
+				dialogueText.text = "Filthy meat lover...";
+			}
 		}
 			
 
-		dialogueBox.SetActive (isActive);
+
 
 	}
 
@@ -266,5 +274,7 @@ public class DialogueManager : MonoBehaviour
 			isActive = false;
 		}
 	}
+
+
 		
 }
