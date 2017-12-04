@@ -22,7 +22,8 @@ public class Inventory
 			inventory.Add (name);
 			Debug.Log ("Added " + name.GetGameItem () + " into inventory");
 		}
-
+		itemSlot0Image = GameObject.Find ("ItemImage0").GetComponent<Image> ();
+		itemSlot1Image = GameObject.Find ("ItemImage1").GetComponent<Image> ();
 	}
 
 	public void RemoveItem (GameItem name)
@@ -33,12 +34,12 @@ public class Inventory
 	public void ListInventory ()
 	{
 		if (inventory.Count > 0) {
-			itemSlot0Image = GameObject.Find ("ItemImage0").GetComponent<Image> ();
+			
 			itemSlot0Image.sprite = inventory [0].GetItemImage ();
 			itemSlot0Image.enabled = true;
 
 			if (inventory.Count > 1) {
-				itemSlot1Image = GameObject.Find ("ItemImage1").GetComponent<Image> ();
+				
 				itemSlot1Image.sprite = inventory [1].GetItemImage ();
 				itemSlot1Image.enabled = true;
 			} else {

@@ -10,4 +10,6 @@ public class StaticObjects
 	public static bool FREE_CHEESEBURGER;
 	public static bool FREE_CHEESEBURGER_GAINED;
 
+	public static int QUEST_FAKEDOCTOR;
+
 }

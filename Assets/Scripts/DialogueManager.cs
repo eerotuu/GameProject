@@ -156,9 +156,7 @@ public class DialogueManager : MonoBehaviour
 			//Nurse Nancy Dialogue
 			if (ObjectiveStatus == 0 && (currentNpc.Equals (DialogueMap.NURSE_NANCY) && StaticObjects.GOT_MEDS || currentNpc.Equals (DialogueMap.NURSE_NANCY) && StaticObjects.GOT_MEDS && StaticObjects.TALKED_TO_NANCY)) {
 				medicine = new GameItem ("medicine", "meds");
-				GameItem key = new GameItem ("key", "key");
 				gameController.player.inventory.AddItem (medicine);
-				gameController.player.inventory.AddItem (key);
 				gameController.player.inventory.ListInventory ();
 				ObjectiveStatus += 1;
 				dialogueText.text = dialogueMap.GetDialogue (DialogueMap.NURSE_NANCY);
@@ -175,13 +173,17 @@ public class DialogueManager : MonoBehaviour
 				dialogueText.text = "Cool! You'll get 20$ for this junk\n\nIf you find more.. stuff.. to sell come see me.";
 				gameController.player.wallet.AddMoney (20);
 				ObjectiveStatus += 1;
-				gameController.ChangeObjective ("Gain your daily calories: 15000kcal");
+				gameController.ChangeObjective ("Gain your daily 1500kcal");
 			} else if (ObjectiveStatus != 2 && currentNpc.Equals ("Drug Buyer")) {
 				dialogueText.text = "Liar!";
 			}
 
 			if (currentNpc.Equals ("Man")) {
 				StaticObjects.OBJECTIVE_VEGAN_BEATED = true;
+				gameController.player.wallet.AddMoney (50);
+				GameItem key = new GameItem ("key", "key");
+				gameController.player.inventory.AddItem (key);
+				gameController.player.inventory.ListInventory ();
 			}
 
 		}
@@ -210,7 +212,21 @@ public class DialogueManager : MonoBehaviour
 			}
 		}
 			
+		//SIDE QUESTS
+		if (isActive) {
+			if (yes.getPressed () && !pressed) {
 
+				switch (currentNpc) {
+				case DialogueMap.VEGANVILLE_MAFIA:
+					dialogueText.text = dialogueMap.GetDialogue (DialogueMap.VEGANVILLE_MAFIA);
+					break;
+				}
+			}
+
+			if (no.getPressed () && !pressed) {
+
+			}
+		}
 
 
 	}
@@ -275,6 +291,17 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
+	public static void SideQuestDialogue (string name, bool hasQuestion)
+	{
+		/*if (!isActive) {
+			isActive = true;
+			dialogueButtons.SetActive (hasQuestion);
+			currentNpc = name;
+			dialgueName.text = name + ":";
+			locked = true;
+			isLocked = true;
+		}*/
 
+	}
 		
 }
