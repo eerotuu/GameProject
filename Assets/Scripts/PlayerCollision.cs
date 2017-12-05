@@ -145,7 +145,7 @@ public class PlayerCollision : MonoBehaviour
 
 		//FastFood door 5 in	
 		if (other.gameObject.name.Equals ("FastFood_5_Door")) {
-			gameController.ChangeScene ("city", "fastfood4", 0f, -1.2f);
+			gameController.ChangeScene ("city", "fastfood5", 0f, -1.2f);
 		}
 
 		//FastFood 5 out

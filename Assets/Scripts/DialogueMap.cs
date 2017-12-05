@@ -18,11 +18,11 @@ public class DialogueMap
 	public static string STEP_3 = "STEP3";
 	public static string STEP_4 = "STEP4";
 
-	public const string Le_AFFAME = "Le Affame"; 
+	public const string Le_AFFAME = "Le Affame";
 	public const string BRGCLUB = "BRGCLUB";
-	public const string TOUGH = "Tough"; 
-	public const string SHISH = "Shish"; 
-	public const string THE_BOGO = "The Bögö"; 
+	public const string TOUGH = "Tough";
+	public const string SHISH = "Shish";
+	public const string THE_BOGO = "The Bögö";
 
 
 
@@ -66,20 +66,26 @@ public class DialogueMap
 		dialogues.Add (BAD_LUCK_BRIAN + DEFAULT, "...");
 		dialogues.Add (BAD_LUCK_BRIAN + STEP_1, "...\n\nInject poison?");
 
-		dialogues.Add (BRGCLUB + DEFAULT, "Hello and welcome to everyones favourite BRGCLUB!\nWould you like a burger for 17$?");
+		dialogues.Add (BRGCLUB + DEFAULT, "Hello and welcome to everyones favourite BRGCLUB!\nWould you like a MegaBurger for 17$?");
 		dialogues.Add (BRGCLUB + STEP_1, "Enjoy!");
+		dialogues.Add (BRGCLUB + STEP_2, "You need to pay you know...");
 
-		dialogues.Add (TOUGH + DEFAULT, "Hello and welcome to Tough-restaurant!\nTodays meals for only 12$!");
+		dialogues.Add (TOUGH + DEFAULT, "Hello and welcome to Tough-restaurant!\nTodays HappyMeal for only 12$!");
 		dialogues.Add (TOUGH + STEP_1, "Enjoy!");
+		dialogues.Add (TOUGH + STEP_2, "You need to pay you know...");
 
 		dialogues.Add (Le_AFFAME + DEFAULT, "Good day sir!\nMay I interest you in a French cuisine for only 55$?");
 		dialogues.Add (Le_AFFAME + STEP_1, "Enjoy!");
+		dialogues.Add (Le_AFFAME + STEP_2, "This is no place for poor hobos.");
 	
 		dialogues.Add (THE_BOGO + DEFAULT, "Hello!\nWould you like some kebab for 7$?");
 		dialogues.Add (THE_BOGO + STEP_1, "Enjoy!");
+		dialogues.Add (THE_BOGO + STEP_2, "NO KEBABO FOR YOU!!!");
 
 		dialogues.Add (SHISH + DEFAULT, "Hellooyouuwannashiish 5 dollah?");
-		dialogues.Add (SHISH + STEP_1, "Enjoy!");
+		dialogues.Add (SHISH + STEP_1, "Heere youu uno shiish.");
+		dialogues.Add (SHISH + STEP_2, "NO MONEY NO SHISH!!!");
+
 
 
 	}
