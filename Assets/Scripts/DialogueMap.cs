@@ -11,7 +11,7 @@ public class DialogueMap
 	public const string DOCTOR_NICK = "Doctor Nick";
 	public const string NURSE_NANCY = "Nurse Nancy";
 	public static string BOB_BURGER = "Bob Burger";
-	public const string VEGANVILLE_MAFIA = "VeganVille Mafia";
+	public const string VEGANVILLE_MAFIA = "Meat Mafia";
 	public const string BAD_LUCK_BRIAN = "Bad Luck Brian";
 
 	public static string DEFAULT = "default";
