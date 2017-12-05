@@ -48,6 +48,9 @@ public class GameController : MonoBehaviour
 			DestroyObject (GameObject.Find ("Music"));
 		}
 
+		if (player.GetBulk () >= 1500) {
+			SceneManager.LoadScene ("end");
+		} 
 
 
 	}

@@ -267,7 +267,7 @@ public class DialogueManager : MonoBehaviour
 					dialogueText.text = "Cool! You'll get 20$ for this junk\n\nIf you find more.. stuff.. to sell come see me.";
 					gameController.player.wallet.AddMoney (20);
 					ObjectiveStatus += 1;
-					gameController.ChangeObjective ("Gain your daily 1500kcal");
+					gameController.ChangeObjective ("Gain your daily 15000kcal");
 				} else if (ObjectiveStatus != 2 && currentNpc.Equals ("Drug Buyer")) {
 					dialogueText.text = "Liar!";
 				}
@@ -275,9 +275,9 @@ public class DialogueManager : MonoBehaviour
 				if (currentNpc.Equals ("Man")) {
 					StaticObjects.OBJECTIVE_VEGAN_BEATED = true;
 					gameController.player.wallet.AddMoney (50);
-					GameItem key = new GameItem ("key", "key");
+					/*GameItem key = new GameItem ("key", "key");
 					gameController.player.inventory.AddItem (key);
-					gameController.player.inventory.ListInventory ();
+					gameController.player.inventory.ListInventory ();*/
 				}
 
 			}
@@ -411,6 +411,8 @@ public class DialogueManager : MonoBehaviour
 			dialogueText.text = dialogueMap.GetDialogue (merchant + DialogueMap.STEP_1);
 			gameController.player.AddBulk (productKcal);
 			gameController.player.wallet.UseMoney (productPrice);
+		} else {
+			dialogueText.text = dialogueMap.GetDialogue (merchant + DialogueMap.STEP_2);
 		}
 	}
 		
