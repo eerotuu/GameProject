@@ -24,4 +24,28 @@ public class StaticObjects
 	public static bool OBJECTIVE_FAKE_DOCTOR_HASQUESTION = false;
 	public static string OBJECTIVE_FAKE_DOCTOR_STATUS = DialogueMap.DEFAULT;
 
+	static public void Reset ()
+	{
+		OBJECTIVE_VEGAN_BEATED = false;
+		GOT_MEDS = false;
+		TALKED_TO_NANCY = false;
+		FREE_CHEESEBURGER = false;
+		FREE_CHEESEBURGER_GAINED = false;
+
+		QUEST_FAKEDOCTOR = 0;
+
+		DOCTOR_DICK_STATUS = DialogueMap.DEFAULT;
+		DOCTOR_DICK_HASQUESTION = true;
+
+		NURSE_NANCY_STATUS = DialogueMap.DEFAULT;
+		NURSE_NANCY_HASQUESTION = true;
+
+		MAFIA_STATUS = DialogueMap.DEFAULT;
+		MAFIA_HASQUESTION = true;
+
+		OBJECTIVE_FAKE_DOCTOR_HASQUESTION = false;
+		OBJECTIVE_FAKE_DOCTOR_STATUS = DialogueMap.DEFAULT;
+		
+	}
+
 }

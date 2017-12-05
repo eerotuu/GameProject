@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		
+		StaticObjects.Reset ();
 		//DontDestroyOnLoad (this);
 		MoneyText = (Text)GameObject.Find ("MoneyText").GetComponent<Text> ();
 		BulkText = (Text)GameObject.Find ("BulkText").GetComponent<Text> ();
@@ -49,6 +49,7 @@ public class GameController : MonoBehaviour
 		}
 
 		if (player.GetBulk () >= 1500) {
+			//StaticObjects.Reset ();
 			SceneManager.LoadScene ("end");
 		} 
 

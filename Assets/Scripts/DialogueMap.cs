@@ -23,7 +23,7 @@ public class DialogueMap
 	public const string TOUGH = "Tough";
 	public const string SHISH = "Shish";
 	public const string THE_BOGO = "The Bögö";
-
+	static bool run;
 
 
 
@@ -31,7 +31,11 @@ public class DialogueMap
 
 	public DialogueMap ()
 	{
-		AddDialogues ();
+		if (!run) {
+			AddDialogues ();
+			run = true;
+		}
+
 	}
 
 
