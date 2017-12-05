@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+/// <summary>
+/// NPC class. USED FOR OLD DIALOGUE SYSTEM ONLY.
+/// </summary>
 public class Npc
 {
 	public string name;

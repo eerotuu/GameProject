@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Game controller. Handles player variables and scene change.
+/// </summary>
 public class GameController : MonoBehaviour
 {
 	public Player player;
@@ -20,19 +23,12 @@ public class GameController : MonoBehaviour
 	void Start ()
 	{
 		StaticObjects.Reset ();
-		//DontDestroyOnLoad (this);
 		MoneyText = (Text)GameObject.Find ("MoneyText").GetComponent<Text> ();
 		BulkText = (Text)GameObject.Find ("BulkText").GetComponent<Text> ();
 		objectiveStatus = (Text)GameObject.Find ("ObjectiveStatusText").GetComponent<Text> ();
 		player = new Player ();
 		SceneManager.LoadScene ("hospital", LoadSceneMode.Additive);
 		exitButton = GameObject.Find ("Exit").GetComponent<PointerController> ();
-		//SceneManager.LoadScene ("city", LoadSceneMode.Additive);
-		//GameObject.Find ("Player").transform.position = new Vector2 (82f, -88f);
-
-
-		//invetory = GameObject.Find ("inven").GetComponent<Inventory> ();
-
 		objectiveStatus.text = "is this ok?";
 	}
 		
@@ -48,8 +44,7 @@ public class GameController : MonoBehaviour
 			DestroyObject (GameObject.Find ("Music"));
 		}
 
-		if (player.GetBulk () >= 1500) {
-			//StaticObjects.Reset ();
+		if (player.GetBulk () >= 15000) {
 			SceneManager.LoadScene ("end");
 		} 
 

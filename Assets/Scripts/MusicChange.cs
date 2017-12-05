@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicChange : MonoBehaviour {
+/// <summary>
+/// Music change.
+/// </summary>
+public class MusicChange : MonoBehaviour
+{
 	public AudioClip audio;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		Music.current.gameObject.GetComponent<AudioSource> ().clip = audio;
 		Music.current.gameObject.GetComponent<AudioSource> ().Play ();
 	}

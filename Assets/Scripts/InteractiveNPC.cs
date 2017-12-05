@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Interactive NPC control. OLD SYSTEM, only controls few npc that isn't moved to new system.
+/// </summary>
 public class InteractiveNPC : MonoBehaviour
 {
 
@@ -35,6 +38,11 @@ public class InteractiveNPC : MonoBehaviour
 		MaleVegan = new Npc ("Man", "Hi. I'm vegan.", false, false);
 	}
 
+	/// <summary>
+	/// Talk the specified npc and iNpc.
+	/// </summary>
+	/// <param name="npc">Npc.</param>
+	/// <param name="iNpc">I npc.</param>
 	public void Talk (Npc npc, InteractiveNPC iNpc)
 	{
 		if (!dManager.isLocked) {
@@ -43,12 +51,22 @@ public class InteractiveNPC : MonoBehaviour
 
 	}
 
+	/// <summary>
+	/// Stops the talk.
+	/// </summary>
 	public void StopTalk ()
 	{
 		dManager.isActive = false;
 		dManager.isLocked = false;
 	}
 
+	/// <summary>
+	/// Changes the dialogue status.
+	/// </summary>
+	/// <param name="npc">Npc.</param>
+	/// <param name="message">Message.</param>
+	/// <param name="hasQuestion">If set to <c>true</c> has question.</param>
+	/// <param name="sells">If set to <c>true</c> sells.</param>
 	public void ChangeDialogueStatus (Npc npc, string message, bool hasQuestion, bool sells)
 	{
 		npc.message = message;

@@ -4,22 +4,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class EndGame : MonoBehaviour {
+/// <summary>
+/// End game button control.
+/// </summary>
+public class EndGame : MonoBehaviour
+{
 
 
 	private PointerController endgame;
 
-	void Start()
+	void Start ()
 	{
 
 		endgame = GameObject.Find ("Start").GetComponent<PointerController> ();
 
 	}
 
-	void Update(){
+	void Update ()
+	{
 
-		if (endgame.getPressed()) {
-
+		if (endgame.getPressed ()) {
+			DestroyObject (GameObject.Find ("Music"));
 			SceneManager.LoadScene ("main_menu");
 		}
 

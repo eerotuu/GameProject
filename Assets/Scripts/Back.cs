@@ -4,21 +4,26 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Back : MonoBehaviour {
+/// <summary>
+/// BackButton Control.
+/// </summary>
+public class Back : MonoBehaviour
+{
 
 
 	private PointerController back;
 
-	void Start()
+	void Start ()
 	{
 
 		back = GameObject.Find ("Back").GetComponent<PointerController> ();
 
 	}
 
-	void Update(){
+	void Update ()
+	{
 
-		if (back.getPressed()) {
+		if (back.getPressed ()) {
 
 			SceneManager.LoadScene ("main_menu");
 		}

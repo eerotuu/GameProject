@@ -124,6 +124,7 @@ public class DialogueManager : MonoBehaviour
 		if (isActive && buy.getPressed () && !pressed) { //!!! DON'T CHANGE THIS
 			pressed = true;
 
+			//NEW SYSTEM
 			switch (currentNpc) {
 			case DialogueMap.BRGCLUB:
 				BuyProduct (DialogueMap.BRGCLUB);
@@ -143,7 +144,7 @@ public class DialogueManager : MonoBehaviour
 			}
 
 
-
+			//OLD SYSTEM
 			if (currentNpc.Equals ("Bob Burger")) {
 				if (gameController.player.wallet.GetSaldo () >= 10) {
 					gameController.player.AddBulk (300);
@@ -237,29 +238,8 @@ public class DialogueManager : MonoBehaviour
 					}
 					break;
 				}
-				//Doctor Dick Dialogue
-				/*if (currentNpc.Equals (DialogueMap.DOCTOR_DICK) && !StaticObjects.GOT_MEDS) {
-					dialogueText.text = dialogueMap.GetDialogue (DialogueMap.DOCTOR_DICK); 
-					iNpc.ChangeDialogueStatus (npc, dialogueMap.GetDialogue (DialogueMap.DOCTOR_DICK), false, false);
-					if (StaticObjects.TALKED_TO_NANCY) {
-						iNpc.ChangeDialogueStatus (iNpc.NurseNancy, "Alright here is your meds. Stay healthy!", false, false);
-					}
-					StaticObjects.GOT_MEDS = true;
-				}*/
 
-				//Nurse Nancy Dialogue
-				/*if (ObjectiveStatus == 0 && (currentNpc.Equals (DialogueMap.NURSE_NANCY) && StaticObjects.GOT_MEDS || currentNpc.Equals (DialogueMap.NURSE_NANCY) && StaticObjects.GOT_MEDS && StaticObjects.TALKED_TO_NANCY)) {
-					medicine = new GameItem ("medicine", "meds");
-					gameController.player.inventory.AddItem (medicine);
-					gameController.player.inventory.ListInventory ();
-					ObjectiveStatus += 1;
-					dialogueText.text = dialogueMap.GetDialogue (DialogueMap.NURSE_NANCY);
-					iNpc.ChangeDialogueStatus (npc, "You already got your meds junkie!", false, false);
-				} else if (currentNpc.Equals (DialogueMap.NURSE_NANCY) && !StaticObjects.GOT_MEDS && !StaticObjects.TALKED_TO_NANCY) {
-					dialogueText.text = "Go talk to Doctor Dick first";
-					StaticObjects.TALKED_TO_NANCY = true;
-				}*/
-
+				//OLD SYSTEM
 				//Drug Buyer's Dialogue
 				if (ObjectiveStatus == 2 && currentNpc.Equals ("Drug Buyer")) {
 					gameController.player.inventory.RemoveItem (medicine);
@@ -304,13 +284,16 @@ public class DialogueManager : MonoBehaviour
 				if (currentNpc.Equals ("Man")) {
 					dialogueText.text = "Filthy meat lover...";
 				}
+				if (currentNpc.Equals (DialogueMap.VEGANVILLE_MAFIA)) {
+					dialogueText.text = "Spineless beta male..";
+				}
 			}
 		}
 
 	}
 
 	/// <summary>
-	/// Start dialogue for specified npc.
+	/// Start dialogue for specified npc. OLD DIALOGUE SYSTEM.
 	/// </summary>
 	/// <param name="iNpc">Interactive npc.</param>
 	/// <param name="npc">Npc.</param>
@@ -337,6 +320,11 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Dialogue the specified name and text.
+	/// </summary>
+	/// <param name="name">Name.</param>
+	/// <param name="text">Text.</param>
 	public void Dialogue (string name, string text)
 	{
 		if (!isActive) {
@@ -369,6 +357,13 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Method for QuestNPC dialogue
+	/// </summary>
+	/// <param name="questNpc">Quest npc.</param>
+	/// <param name="name">Name.</param>
+	/// <param name="hasQuestion">If set to <c>true</c> has question.</param>
+	/// <param name="status">Status.</param>
 	public void SideQuestDialogue (QuestNPC questNpc, string name, bool hasQuestion, string status)
 	{
 		if (!isActive) {
@@ -386,6 +381,14 @@ public class DialogueManager : MonoBehaviour
 
 	}
 
+	/// <summary>
+	/// Method for merchant dialogue.
+	/// </summary>
+	/// <param name="merchantNpc">Merchant npc.</param>
+	/// <param name="merchant">Merchant.</param>
+	/// <param name="product">Product.</param>
+	/// <param name="price">Price.</param>
+	/// <param name="kcal">Kcal.</param>
 	public void MerchantDialogue (MerchantNPC merchantNpc, string merchant, string product, int price, int kcal)
 	{
 		if (!isActive) {
@@ -405,6 +408,10 @@ public class DialogueManager : MonoBehaviour
 		
 	}
 
+	/// <summary>
+	/// Method for buying the product.
+	/// </summary>
+	/// <param name="merchant">Merchant.</param>
 	void BuyProduct (string merchant)
 	{
 		if (gameController.player.wallet.GetSaldo () >= productPrice) {

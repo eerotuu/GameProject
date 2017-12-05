@@ -1,9 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-
+/// <summary>
+/// Class for storing static variables.
+/// </summary>
 public class StaticObjects
 {
+	//OBJECTIVE STATUSES
 	public static bool OBJECTIVE_VEGAN_BEATED;
 	public static bool GOT_MEDS;
 	public static bool TALKED_TO_NANCY;
@@ -12,6 +15,7 @@ public class StaticObjects
 
 	public static int QUEST_FAKEDOCTOR = 0;
 
+	//NPC STATUSES
 	public static string DOCTOR_DICK_STATUS = DialogueMap.DEFAULT;
 	public static bool DOCTOR_DICK_HASQUESTION = true;
 
@@ -24,6 +28,9 @@ public class StaticObjects
 	public static bool OBJECTIVE_FAKE_DOCTOR_HASQUESTION = false;
 	public static string OBJECTIVE_FAKE_DOCTOR_STATUS = DialogueMap.DEFAULT;
 
+	/// <summary>
+	/// Reset the static variables.
+	/// </summary>
 	static public void Reset ()
 	{
 		OBJECTIVE_VEGAN_BEATED = false;

@@ -4,13 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class StartButton : MonoBehaviour {
-
+/// <summary>
+/// Button Control for some menu buttons.
+/// </summary>
+public class StartButton : MonoBehaviour
+{
+	//Saves pointer controllers for menu buttons.
 	private PointerController button;
 	private PointerController credits;
 	private PointerController exit;
 
-	void Start()
+	void Start ()
 	{
 		button = GameObject.Find ("StartGame").GetComponent<PointerController> ();
 		credits = GameObject.Find ("Credits").GetComponent<PointerController> ();
@@ -19,19 +23,20 @@ public class StartButton : MonoBehaviour {
 
 	}
 
-	void Update(){
-		if (button.getPressed()) {
+	void Update ()
+	{
+		if (button.getPressed ()) {
 			SceneManager.LoadScene ("intro");
 		}
 
-		if (credits.getPressed()) {
+		if (credits.getPressed ()) {
 			
 			SceneManager.LoadScene ("Credits");
 		}
-		if (exit.getPressed()) {
-			Debug.Log ("peliloppu");
+		if (exit.getPressed ()) {
+			//Debug.Log ("peliloppu");
 			Application.Quit ();
-			Application.Unload ();
+
 		}
 
 	}

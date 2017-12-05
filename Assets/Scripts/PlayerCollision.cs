@@ -4,18 +4,28 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Player collision.
+/// </summary>
 public class PlayerCollision : MonoBehaviour
 {
-
+	//current InteractiveNPC, OLD DIALOGUE SYSTEM.
 	public InteractiveNPC currentIntreactiveNPC;
+	//current GenericNPC, npc with no questions.
 	GenericNPC currentGenericNpc;
+	//current QuestNPC, has status that affect his dialogue and questions.
 	QuestNPC currentQuestNpc;
+	//current MerchantNPC, has buttons that affect dialogue and products he sells.
 	MerchantNPC currentMerchant;
+	//CurrentNPC, OLD DIALOGUE SYSTEM.
 	Npc npc;
+	//Saves button controller for interact button.
 	PointerController interact;
+	//image for what??
 	Image iButton;
+	//Saves GameController.
 	GameController gameController;
-
+	//Saves Dialogue Manager.
 	DialogueManager dManager;
 
 	// Use this for initialization
@@ -37,21 +47,6 @@ public class PlayerCollision : MonoBehaviour
 			}
 
 		}
-
-		/*if (interact.getPressed () && currentGenericNpc) {
-			if (currentGenericNpc.talks) {
-				currentGenericNpc.Talk ();
-			}
-
-		}
-
-		if (interact.getPressed () && currentQuestNpc) {
-			currentQuestNpc.Talk ();
-		}
-
-		if (interact.getPressed () && currentMerchant) {
-			currentQuestNpc.Talk ();
-		}*/
 
 		if (interact.getPressed ()) {
 			if (currentGenericNpc) {
@@ -180,27 +175,6 @@ public class PlayerCollision : MonoBehaviour
 			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
 			npc = currentIntreactiveNPC.BurgerBob;
 		}
-
-		//NPC INTERACTION
-
-		//Doctor in hospital
-		/*if (other.gameObject.name.Equals ("doctor")) {
-			iButton.color = Color.green;
-			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
-			npc = currentIntreactiveNPC.DoctorDick;
-		}*/
-
-		/*if (other.gameObject.name.Equals ("doctor2")) {
-			iButton.color = Color.green;
-			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
-			npc = currentIntreactiveNPC.DoctorNick;
-		}*/
-
-		/*if (other.gameObject.name.Equals ("nurse1")) {
-			iButton.color = Color.green;
-			currentIntreactiveNPC = other.gameObject.GetComponent <InteractiveNPC> ();
-			npc = currentIntreactiveNPC.NurseNancy;
-		}*/
 
 		if (other.gameObject.name.Equals ("DrugBuyer")) {
 			iButton.color = Color.green;

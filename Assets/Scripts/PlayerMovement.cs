@@ -4,17 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Player movement Control.
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-
+	//Speed for Player object.
 	public float speed;
+	//Is Player Moving.
 	private bool moving = false;
+	//Saves Player rigidbody component
 	private Rigidbody2D playerRigidbody;
+	//Saves the last moved direction for animator.
 	public Vector2 lastMove;
+	//Moving direction for animator.
 	public Vector2 move;
+	//Players animator.
 	Animator anim;
 
-
+	//Saves pointercontrollers for movement buttons.
 	PointerController up;
 	PointerController down;
 	PointerController left;
@@ -73,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 			moving = true;
 		}
 			
-
+		//Tells animator directions.
 		anim.SetFloat ("MoveX", move.x);
 		anim.SetFloat ("MoveY", move.y);
 		anim.SetBool ("Moving", moving);

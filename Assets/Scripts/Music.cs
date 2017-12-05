@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Music : MonoBehaviour {
+/// <summary>
+/// Music controller.
+/// </summary>
+public class Music : MonoBehaviour
+{
 	public static Music current;
 
-	void Awake() {
+	/// <summary>
+	/// Awake this instance.
+	/// </summary>
+	void Awake ()
+	{
 		if (current) {
 			Destroy (gameObject);
 			return;
@@ -13,6 +21,6 @@ public class Music : MonoBehaviour {
 
 		current = this;
 
-		DontDestroyOnLoad(transform.gameObject);
+		DontDestroyOnLoad (transform.gameObject);
 	}
 }

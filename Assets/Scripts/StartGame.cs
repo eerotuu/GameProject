@@ -4,21 +4,26 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class StartGame : MonoBehaviour {
+/// <summary>
+/// Start game control.
+/// </summary>
+public class StartGame : MonoBehaviour
+{
 
-
+	//saves pointercontroller for startgame button.
 	private PointerController startgame;
 
-	void Start()
+	void Start ()
 	{
 
 		startgame = GameObject.Find ("Start").GetComponent<PointerController> ();
 
 	}
 
-	void Update(){
+	void Update ()
+	{
 
-		if (startgame.getPressed()) {
+		if (startgame.getPressed ()) {
 
 			SceneManager.LoadScene ("main_scene");
 		}

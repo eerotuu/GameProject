@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// QuestNPC Control.
+/// </summary>
 public class QuestNPC : MonoBehaviour
 {
+	//Name for npc
 	public string name;
+	//Does npc have a question.
 	public bool hasQuestion;
+	//Current QuestStatus.
 	public string questStatus;
 
 
@@ -38,17 +44,28 @@ public class QuestNPC : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Opens talk dialogue for this npc
+	/// </summary>
 	public void Talk ()
 	{
 		GameObject.Find ("DialogueManager").GetComponent<DialogueManager> ().SideQuestDialogue (this, name, hasQuestion, questStatus);
 	}
 
+	/// <summary>
+	/// Stops the talk.
+	/// </summary>
 	public void StopTalk ()
 	{
 		GameObject.Find ("DialogueManager").GetComponent<DialogueManager> ().isActive = false;
 		GameObject.Find ("DialogueManager").GetComponent<DialogueManager> ().isLocked = false;
 	}
 
+	/// <summary>
+	/// Changes the npc status.
+	/// </summary>
+	/// <param name="status">Status.</param>
+	/// <param name="hasQuestion">If set to <c>true</c> has question.</param>
 	public void ChangeStatus (string status, bool hasQuestion)
 	{
 		questStatus = status;
