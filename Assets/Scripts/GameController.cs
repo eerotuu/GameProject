@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
 	Wallet wallet;
 	Inventory invetory;
 	DialogueManager dManager;
-
+	PointerController exitButton;
 	string status;
 
 	// Use this for initialization
@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
 		objectiveStatus = (Text)GameObject.Find ("ObjectiveStatusText").GetComponent<Text> ();
 		player = new Player ();
 		SceneManager.LoadScene ("hospital", LoadSceneMode.Additive);
+		exitButton = GameObject.Find ("Exit").GetComponent<PointerController> ();
 		//SceneManager.LoadScene ("city", LoadSceneMode.Additive);
 		//GameObject.Find ("Player").transform.position = new Vector2 (82f, -88f);
 
@@ -41,6 +42,11 @@ public class GameController : MonoBehaviour
 		MoneyText.text = "Money: " + player.wallet.GetSaldo () + "$";
 		BulkText.text = "Bulk: " + player.GetBulk () + " kcal";
 		objectiveStatus.text = status;
+
+		if (exitButton.getPressed ()) {
+			SceneManager.LoadScene ("main_menu");
+			DestroyObject (GameObject.Find ("Music"));
+		}
 
 
 
