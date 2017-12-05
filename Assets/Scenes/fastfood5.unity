@@ -997,10 +997,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 496297051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
+  m_Script: {fileID: 11500000, guid: a728fc7537b2cb0408c007ece2543747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talks: 1
+  merchant: Tough
+  product: 
+  productKcal: 350
+  price: 12
 --- !u!58 &496297054
 CircleCollider2D:
   m_ObjectHideFlags: 0
