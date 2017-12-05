@@ -122,7 +122,6 @@ GameObject:
   - component: {fileID: 56043588}
   - component: {fileID: 56043591}
   - component: {fileID: 56043590}
-  - component: {fileID: 56043589}
   m_Layer: 0
   m_Name: customer (10)
   m_TagString: NPC
@@ -143,18 +142,6 @@ Transform:
   m_Father: {fileID: 140695413}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &56043589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 56043587}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &56043590
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -266,7 +253,6 @@ GameObject:
   - component: {fileID: 188171855}
   - component: {fileID: 188171858}
   - component: {fileID: 188171857}
-  - component: {fileID: 188171856}
   m_Layer: 0
   m_Name: customer (14)
   m_TagString: NPC
@@ -287,18 +273,6 @@ Transform:
   m_Father: {fileID: 140695413}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &188171856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 188171854}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &188171857
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -479,7 +453,6 @@ GameObject:
   - component: {fileID: 440857365}
   - component: {fileID: 440857368}
   - component: {fileID: 440857367}
-  - component: {fileID: 440857366}
   - component: {fileID: 440857369}
   m_Layer: 0
   m_Name: customer (4)
@@ -501,18 +474,6 @@ Transform:
   m_Father: {fileID: 140695413}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &440857366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 440857364}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &440857367
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -527,7 +488,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.2
 --- !u!212 &440857368
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -596,7 +557,6 @@ GameObject:
   - component: {fileID: 487626211}
   - component: {fileID: 487626214}
   - component: {fileID: 487626213}
-  - component: {fileID: 487626212}
   m_Layer: 0
   m_Name: customer (11)
   m_TagString: NPC
@@ -617,18 +577,6 @@ Transform:
   m_Father: {fileID: 140695413}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &487626212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 487626210}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &487626213
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -846,7 +794,6 @@ GameObject:
   - component: {fileID: 1144223667}
   - component: {fileID: 1144223670}
   - component: {fileID: 1144223669}
-  - component: {fileID: 1144223668}
   - component: {fileID: 1144223671}
   m_Layer: 0
   m_Name: customer (12)
@@ -868,18 +815,6 @@ Transform:
   m_Father: {fileID: 140695413}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1144223668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1144223666}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &1144223669
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -894,7 +829,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.2
 --- !u!212 &1144223670
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -963,7 +898,6 @@ GameObject:
   - component: {fileID: 1276670927}
   - component: {fileID: 1276670930}
   - component: {fileID: 1276670929}
-  - component: {fileID: 1276670928}
   m_Layer: 0
   m_Name: customer (2)
   m_TagString: NPC
@@ -984,18 +918,6 @@ Transform:
   m_Father: {fileID: 140695413}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1276670928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1276670926}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &1276670929
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1065,7 +987,6 @@ GameObject:
   - component: {fileID: 1320908921}
   - component: {fileID: 1320908924}
   - component: {fileID: 1320908923}
-  - component: {fileID: 1320908922}
   m_Layer: 0
   m_Name: customer (6)
   m_TagString: NPC
@@ -1086,18 +1007,6 @@ Transform:
   m_Father: {fileID: 140695413}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1320908922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1320908920}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &1320908923
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1167,7 +1076,6 @@ GameObject:
   - component: {fileID: 1500887694}
   - component: {fileID: 1500887697}
   - component: {fileID: 1500887696}
-  - component: {fileID: 1500887695}
   m_Layer: 0
   m_Name: customer (1)
   m_TagString: NPC
@@ -1188,18 +1096,6 @@ Transform:
   m_Father: {fileID: 140695413}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1500887695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1500887693}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &1500887696
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1268,6 +1164,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1647792003}
   - component: {fileID: 1647792002}
+  - component: {fileID: 1647792005}
+  - component: {fileID: 1647792004}
   m_Layer: 0
   m_Name: Merchant
   m_TagString: Untagged
@@ -1326,12 +1224,52 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1647792001}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6616287, y: 3.215704, z: -0.5063183}
+  m_LocalPosition: {x: 2.75, y: 3.215704, z: -0.5063183}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 140695413}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1647792004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1647792001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a728fc7537b2cb0408c007ece2543747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  merchant: BRGCLUB
+  product: MegaBurger
+  productKcal: 900
+  price: 17
+--- !u!61 &1647792005
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1647792001}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.35}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.15}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.2}
+  m_EdgeRadius: 0
 --- !u!4 &1664320721 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4049226863483598, guid: 483679a32ea48df4ab2d5b9a53865c8b,
@@ -1347,7 +1285,6 @@ GameObject:
   - component: {fileID: 1680395118}
   - component: {fileID: 1680395121}
   - component: {fileID: 1680395120}
-  - component: {fileID: 1680395119}
   m_Layer: 0
   m_Name: customer (5)
   m_TagString: NPC
@@ -1368,18 +1305,6 @@ Transform:
   m_Father: {fileID: 140695413}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1680395119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1680395117}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &1680395120
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1551,7 +1476,6 @@ GameObject:
   - component: {fileID: 1947489162}
   - component: {fileID: 1947489165}
   - component: {fileID: 1947489164}
-  - component: {fileID: 1947489163}
   m_Layer: 0
   m_Name: customer (7)
   m_TagString: NPC
@@ -1572,18 +1496,6 @@ Transform:
   m_Father: {fileID: 140695413}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1947489163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1947489161}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &1947489164
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1653,7 +1565,6 @@ GameObject:
   - component: {fileID: 2065981806}
   - component: {fileID: 2065981809}
   - component: {fileID: 2065981808}
-  - component: {fileID: 2065981807}
   m_Layer: 0
   m_Name: customer
   m_TagString: NPC
@@ -1674,18 +1585,6 @@ Transform:
   m_Father: {fileID: 140695413}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2065981807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2065981805}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &2065981808
 CircleCollider2D:
   m_ObjectHideFlags: 0

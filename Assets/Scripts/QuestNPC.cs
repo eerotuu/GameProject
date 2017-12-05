@@ -13,24 +13,7 @@ public class QuestNPC : MonoBehaviour
 	void Start ()
 	{
 		questStatus = DialogueMap.DEFAULT;
-		/*switch (name) {
-		case DialogueMap.DOCTOR_DICK:
-			questStatus = StaticObjects.DOCTOR_DICK_STATUS;
-			hasQuestion = StaticObjects.DOCTOR_DICK_HASQUESTION; 
-			break;
-		case DialogueMap.NURSE_NANCY:
-			questStatus = StaticObjects.NURSE_NANCY_STATUS;
-			hasQuestion = StaticObjects.NURSE_NANCY_HASQUESTION;
-			break;
-		case DialogueMap.VEGANVILLE_MAFIA:
-			questStatus = StaticObjects.MAFIA_STATUS;
-			hasQuestion = StaticObjects.MAFIA_HASQUESTION;
-			break;
-		case DialogueMap.BAD_LUCK_BRIAN:
-			questStatus = StaticObjects.OBJECTIVE_FAKE_DOCTOR_STATUS;
-			hasQuestion = StaticObjects.OBJECTIVE_FAKE_DOCTOR_HASQUESTION;
-			break;
-		}*/
+
 	}
 
 	void Update ()

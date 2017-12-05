@@ -10,6 +10,7 @@ public class PlayerCollision : MonoBehaviour
 	public InteractiveNPC currentIntreactiveNPC;
 	GenericNPC currentGenericNpc;
 	QuestNPC currentQuestNpc;
+	MerchantNPC currentMerchant;
 	Npc npc;
 	PointerController interact;
 	Image iButton;
@@ -37,7 +38,7 @@ public class PlayerCollision : MonoBehaviour
 
 		}
 
-		if (interact.getPressed () && currentGenericNpc) {
+		/*if (interact.getPressed () && currentGenericNpc) {
 			if (currentGenericNpc.talks) {
 				currentGenericNpc.Talk ();
 			}
@@ -46,6 +47,26 @@ public class PlayerCollision : MonoBehaviour
 
 		if (interact.getPressed () && currentQuestNpc) {
 			currentQuestNpc.Talk ();
+		}
+
+		if (interact.getPressed () && currentMerchant) {
+			currentQuestNpc.Talk ();
+		}*/
+
+		if (interact.getPressed ()) {
+			if (currentGenericNpc) {
+				if (currentGenericNpc.talks) {
+					currentGenericNpc.Talk ();
+				}
+			}
+
+			if (currentQuestNpc) {
+				currentQuestNpc.Talk ();
+			}
+
+			if (currentMerchant) {
+				currentMerchant.Talk ();
+			}
 		}
 		
 	}
@@ -63,6 +84,10 @@ public class PlayerCollision : MonoBehaviour
 		}
 		if (other.gameObject.GetComponent<QuestNPC> ()) {
 			currentQuestNpc = other.gameObject.GetComponent <QuestNPC> ();
+			iButton.color = Color.green;
+		}
+		if (other.gameObject.GetComponent<MerchantNPC> ()) {
+			currentMerchant = other.gameObject.GetComponent <MerchantNPC> ();
 			iButton.color = Color.green;
 		}
 		//Hospial door out
@@ -225,6 +250,15 @@ public class PlayerCollision : MonoBehaviour
 			QuestNPC npcCheck = other.gameObject.GetComponent <QuestNPC> ();
 			currentQuestNpc.StopTalk ();
 			currentQuestNpc = null;
+			iButton.color = Color.white;
+
+
+		}
+
+		if (other.gameObject.GetComponent <MerchantNPC> ()) {
+			MerchantNPC npcCheck = other.gameObject.GetComponent <MerchantNPC> ();
+			currentMerchant.StopTalk ();
+			currentMerchant = null;
 			iButton.color = Color.white;
 
 

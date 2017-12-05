@@ -18,6 +18,13 @@ public class DialogueMap
 	public static string STEP_3 = "STEP3";
 	public static string STEP_4 = "STEP4";
 
+	public const string Le_AFFAME = "Le Affame";
+	public const string BRGCLUB = "BRGCLUB";
+	public const string TOUGH = "Tough";
+	public const string SHISH = "Shish";
+	public const string THE_BOGO = "The Bögö";
+
+
 
 
 	public static Dictionary<string, string> dialogues = new Dictionary<string, string> ();
@@ -58,6 +65,23 @@ public class DialogueMap
 
 		dialogues.Add (BAD_LUCK_BRIAN + DEFAULT, "...");
 		dialogues.Add (BAD_LUCK_BRIAN + STEP_1, "...\n\nInject poison?");
+
+		dialogues.Add (BRGCLUB + DEFAULT, "...");
+		dialogues.Add (BRGCLUB + STEP_1, "...");
+
+		dialogues.Add (TOUGH + DEFAULT, "...");
+		dialogues.Add (TOUGH + STEP_1, "...");
+
+		dialogues.Add (Le_AFFAME + DEFAULT, "...");
+		dialogues.Add (Le_AFFAME + STEP_1, "...");
+
+		dialogues.Add (THE_BOGO + DEFAULT, "...");
+		dialogues.Add (THE_BOGO + STEP_1, "...");
+
+		dialogues.Add (SHISH + DEFAULT, "...");
+		dialogues.Add (SHISH + STEP_1, "...");
+
+
 	}
 	
 }

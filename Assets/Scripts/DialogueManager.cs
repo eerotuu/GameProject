@@ -20,6 +20,9 @@ public class DialogueManager : MonoBehaviour
 	string currentNpc;
 	Npc npc;
 	QuestNPC questNPC;
+	MerchantNPC merchantNPC;
+	int productPrice;
+	int productKcal;
 
 	//DIALOGUE BUTTONS.
 	public GameObject dialogueBox;
@@ -120,8 +123,29 @@ public class DialogueManager : MonoBehaviour
 		 
 		if (isActive && buy.getPressed () && !pressed) { //!!! DON'T CHANGE THIS
 			pressed = true;
+
+			switch (currentNpc) {
+			case DialogueMap.BRGCLUB:
+				BuyProduct (DialogueMap.BRGCLUB);
+				break;
+			case DialogueMap.Le_AFFAME:
+				BuyProduct (DialogueMap.Le_AFFAME);
+				break;
+			case DialogueMap.SHISH:
+				BuyProduct (DialogueMap.SHISH);
+				break;
+			case DialogueMap.THE_BOGO:
+				BuyProduct (DialogueMap.THE_BOGO);
+				break;
+			case DialogueMap.TOUGH:
+				BuyProduct (DialogueMap.TOUGH);
+				break;
+			}
+
+
+
 			if (currentNpc.Equals ("Bob Burger")) {
-				if (gameController.player.wallet.GetSaldo () > 0) {
+				if (gameController.player.wallet.GetSaldo () >= 10) {
 					gameController.player.AddBulk (300);
 					gameController.player.wallet.UseMoney (10);
 					Debug.Log ("Bought CheeseBurger!");
@@ -360,6 +384,34 @@ public class DialogueManager : MonoBehaviour
 			isLocked = true;
 		}
 
+	}
+
+	public void MerchantDialogue (MerchantNPC merchantNpc, string merchant, string product, int price, int kcal)
+	{
+		if (!isActive) {
+			isActive = true;
+			this.merchantNPC = merchantNpc;
+			dialogueButtons.SetActive (false);
+			dialogueButtonsSell.SetActive (true);
+			dialogueOkButton.SetActive (false);
+			currentNpc = merchant;
+			dialgueName.text = merchant + ":";
+			dialogueText.text = dialogueMap.GetDialogue (merchant + DialogueMap.DEFAULT);
+			locked = true;
+			isLocked = true;
+			this.productPrice = price;
+			this.productKcal = kcal;
+		}
+		
+	}
+
+	void BuyProduct (string merchant)
+	{
+		if (gameController.player.wallet.GetSaldo () >= productPrice) {
+			dialogueText.text = dialogueMap.GetDialogue (merchant + DialogueMap.STEP_1);
+			gameController.player.AddBulk (productKcal);
+			gameController.player.wallet.UseMoney (productPrice);
+		}
 	}
 		
 }
