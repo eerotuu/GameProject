@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 412535193}
   - component: {fileID: 412535192}
   - component: {fileID: 412535191}
-  - component: {fileID: 412535190}
+  - component: {fileID: 412535194}
   m_Layer: 0
   m_Name: FastFoodMerchant
   m_TagString: Untagged
@@ -637,18 +637,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &412535190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 412535189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &412535191
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -721,6 +709,21 @@ Transform:
   m_Father: {fileID: 1212092461}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &412535194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 412535189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a728fc7537b2cb0408c007ece2543747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  merchant: "The B\xF6g\xF6"
+  product: Kebab
+  productKcal: 250
+  price: 7
 --- !u!1 &837293892
 GameObject:
   m_ObjectHideFlags: 0

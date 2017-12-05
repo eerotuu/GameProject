@@ -240,10 +240,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 53755312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
+  m_Script: {fileID: 11500000, guid: a728fc7537b2cb0408c007ece2543747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talks: 1
+  merchant: Le Affame
+  product: Cuisine
+  productKcal: 250
+  price: 55
 --- !u!58 &53755314
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -258,7 +261,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.8
 --- !u!212 &53755315
 SpriteRenderer:
   m_ObjectHideFlags: 0

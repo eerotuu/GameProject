@@ -961,7 +961,7 @@ GameObject:
   - component: {fileID: 859025449}
   - component: {fileID: 859025452}
   - component: {fileID: 859025451}
-  - component: {fileID: 859025450}
+  - component: {fileID: 859025453}
   m_Layer: 0
   m_Name: FastFoodMerchant
   m_TagString: Untagged
@@ -982,18 +982,6 @@ Transform:
   m_Father: {fileID: 561994322}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &859025450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 859025448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c9324a90ab6224aa7f7a7855de1de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talks: 1
 --- !u!58 &859025451
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1053,6 +1041,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &859025453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859025448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a728fc7537b2cb0408c007ece2543747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  merchant: Shish
+  product: Shish-kebab
+  productKcal: 150
+  price: 5
 --- !u!1 &1024371747
 GameObject:
   m_ObjectHideFlags: 0
