@@ -159,7 +159,7 @@ public class PlayerCollision : MonoBehaviour
 
 		//coin
 		if (other.gameObject.name.Equals ("Coin")) {
-			gameController.player.wallet.AddMoney (10000);
+			gameController.player.wallet.AddMoney (150);
 
 			Destroy (other.gameObject);
 		}

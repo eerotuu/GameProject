@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 53693002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -359.06, y: -229.72, z: 0.7617151}
+  m_LocalPosition: {x: -360.385, y: -230.181, z: 0.7617151}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 510749433}
@@ -156,7 +156,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.26
 --- !u!212 &53693006
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1698,6 +1698,7 @@ GameObject:
   - component: {fileID: 1472756412}
   - component: {fileID: 1472756411}
   - component: {fileID: 1472756410}
+  - component: {fileID: 1472756413}
   m_Layer: 0
   m_Name: objectiveVegan
   m_TagString: NPC
@@ -1779,7 +1780,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300024, guid: 05cd436499447da4aaec4682400f6a3c, type: 3}
+  m_Sprite: {fileID: 21300024, guid: 4b94ec490f7d0e641b819350255e8750, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1789,6 +1790,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!58 &1472756413
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1472756408}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0000019073486}
+  serializedVersion: 2
+  m_Radius: 0.08
 --- !u!1 &1522845621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2297,7 +2313,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 381a0ab0fda9d284a8a26867dd5885b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b94ec490f7d0e641b819350255e8750, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
