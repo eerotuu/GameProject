@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 		
 		moving = false;
 
-		if (up.getPressed ()) {
+		if (up.getPressed () || (Input.GetKey ("w") && !moving)) {
 			playerRigidbody.AddForce (Vector2.up * speed);
 			move = new Vector2 (0f, 1);
 			lastMove = new Vector2 (0f, 1);
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 			moving = true;
 		}
 
-		if (down.getPressed ()) {
+		if (down.getPressed () || (Input.GetKey ("s") && !moving)) {
 			playerRigidbody.AddForce (-Vector2.up * speed);
 			move = new Vector2 (0f, -1);
 			lastMove = new Vector2 (0f, -1);
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 			moving = true;
 		}
 
-		if (left.getPressed ()) {
+		if (left.getPressed () || (Input.GetKey ("a") && !moving)) {
 			playerRigidbody.AddForce (-Vector2.right * speed);
 			move = new Vector2 (-1, 0);
 			lastMove = new Vector2 (-1, 0);
@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
 			moving = true;
 		}
 
-		if (right.getPressed ()) {
+		if (right.getPressed () || (Input.GetKey ("d") && !moving)) {
 			playerRigidbody.AddForce (Vector2.right * speed);
 			move = new Vector2 (1, 0);
 			lastMove = new Vector2 (1, 0);

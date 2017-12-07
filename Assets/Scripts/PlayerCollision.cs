@@ -41,14 +41,14 @@ public class PlayerCollision : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (interact.getPressed () && currentIntreactiveNPC) {
+		if ((interact.getPressed () || Input.GetKey ("space")) && currentIntreactiveNPC) {
 			if (currentIntreactiveNPC.talks) {
 				currentIntreactiveNPC.Talk (npc, currentIntreactiveNPC);
 			}
 
 		}
 
-		if (interact.getPressed ()) {
+		if (interact.getPressed () || Input.GetKey ("space")) {
 			if (currentGenericNpc) {
 				if (currentGenericNpc.talks) {
 					currentGenericNpc.Talk ();
